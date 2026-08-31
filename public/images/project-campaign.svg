@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+<rect width="1200" height="800" fill="#d9f0e5"/>
+<rect x="170" y="95" width="360" height="610" rx="14" fill="#fff" transform="rotate(-5 350 400)"/>
+<rect x="630" y="100" width="360" height="610" rx="14" fill="#173c2f" transform="rotate(5 810 405)"/>
+<circle cx="355" cy="300" r="115" fill="#45c98a"/>
+<path d="M265 530 C320 420 390 430 460 520 L460 620 L265 620 Z" fill="#173c2f"/>
+<text x="695" y="280" font-family="Arial" font-size="38" font-weight="700" fill="#d9f0e5">MATERIAL</text>
+<text x="695" y="325" font-family="Arial" font-size="38" font-weight="700" fill="#d9f0e5">ADVANTAGE</text>
+<rect x="695" y="385" width="205" height="14" rx="7" fill="#45c98a"/>
+<rect x="695" y="420" width="150" height="14" rx="7" fill="#45c98a"/>
+</svg>

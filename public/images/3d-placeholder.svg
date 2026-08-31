@@ -1,0 +1,19 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="1200" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9C6D9"/><stop offset="1" stop-color="#8E7794"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="20"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#wall)"/>
+  <path d="M0 515H1200V760H0V515Z" fill="#B9A8B9"/>
+  <ellipse cx="435" cy="594" rx="230" ry="45" fill="#473B49" fill-opacity=".25" filter="url(#shadow)"/>
+  <ellipse cx="425" cy="525" rx="210" ry="84" fill="#F4F0EC"/>
+  <ellipse cx="425" cy="512" rx="160" ry="55" fill="#E94E84"/>
+  <ellipse cx="425" cy="492" rx="160" ry="52" fill="#E992B4"/>
+  <ellipse cx="425" cy="491" rx="58" ry="23" fill="#C7977C"/>
+  <ellipse cx="825" cy="589" rx="130" ry="33" fill="#473B49" fill-opacity=".2" filter="url(#shadow)"/>
+  <rect x="720" y="378" width="210" height="202" rx="18" fill="#312D31"/>
+  <rect x="741" y="399" width="168" height="160" rx="10" fill="#8D6E74"/>
+  <ellipse cx="825" cy="401" rx="79" ry="18" fill="#D7CACB"/>
+</svg>

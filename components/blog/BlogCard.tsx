@@ -1,24 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDate } from "@/lib/format-date";
-import { getImageUrl } from "@/lib/media";
 import type { Post } from "@/types/content";
 
 export function BlogCard({ post }: { post: Post }) {
-  const imageUrl = getImageUrl(
-    post.coverImage,
-    post.coverImageUrl || "/images/post-placeholder.svg",
-    1000,
-  );
-
   return (
     <article className="blog-card">
       <Link href={`/blog/${post.slug}`}>
         <Image
-          src={imageUrl || "/images/post-placeholder.svg"}
+          src={post.coverImage || "/images/post-placeholder.svg"}
           width={1000}
           height={640}
-          alt=""
+          alt={`${post.title} article cover`}
         />
       </Link>
       <p className="eyebrow">{formatDate(post.publishedAt)}</p>

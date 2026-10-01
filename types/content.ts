@@ -10,8 +10,15 @@ export type ProjectCategory = {
   slug: CategorySlug | string;
 };
 
+export type GalleryItem = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
+
 export type Project = {
-  _id: string;
+  id: string;
+  order: number;
   title: string;
   slug: string;
   summary: string;
@@ -25,42 +32,35 @@ export type Project = {
   services?: string[];
   technologies?: string[];
   designTools?: string[];
-  coverImage?: unknown;
-  coverImageUrl?: string;
-  gallery?: Array<{
-    _key?: string;
-    image?: unknown;
-    imageUrl?: string;
-    alt?: string;
-    caption?: string;
-  }>;
-  overview?: unknown[];
-  challenge?: unknown[];
-  process?: unknown[];
-  solution?: unknown[];
-  outcome?: unknown[];
+  coverImage: string;
+  gallery?: GalleryItem[];
+  overview?: string[];
+  challenge?: string[];
+  process?: string[];
+  solution?: string[];
+  outcome?: string[];
   liveUrl?: string;
   repositoryUrl?: string;
   prototypeUrl?: string;
 };
 
 export type Post = {
-  _id: string;
+  id: string;
   title: string;
   slug: string;
   excerpt: string;
   publishedAt: string;
   categories?: string[];
-  coverImage?: unknown;
-  coverImageUrl?: string;
-  body?: unknown[];
+  coverImage: string;
+  body: string[];
 };
 
-
 export type Testimonial = {
-  _id: string;
+  id: string;
   quote: string;
   name?: string;
   role?: string;
   company?: string;
+  image?: string;
+  link?: string;
 };

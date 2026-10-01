@@ -16,7 +16,7 @@ type WorkPageProps = {
 
 export default async function WorkPage({ searchParams }: WorkPageProps) {
   const { category } = await searchParams;
-  const projects = await getProjects();
+  const projects = getProjects();
 
   const filteredProjects = category
     ? projects.filter((project) =>

@@ -5,17 +5,19 @@ import { VisualShowcase } from "@/components/home/VisualShowcase";
 import { Container } from "@/components/layout/Container";
 import { Testimonials } from "@/components/testimonials/Testimonials";
 import { getFeaturedProjects, getTestimonials } from "@/lib/content";
+import { ClientLogoMarquee } from "@/components/home/ClientLogoMarquee";
 
-export default async function HomePage() {
-  const [projects, testimonials] = await Promise.all([
-    getFeaturedProjects(),
-    getTestimonials(),
-  ]);
+export default function HomePage() {
+  const projects = getFeaturedProjects();
+  const testimonials = getTestimonials();
 
   return (
     <main>
       <section className="home-hero star-field">
-        <div className="hero-glow" aria-hidden="true" />
+        <div className="hero-glow" aria-hidden="true">
+          <div className="hero-glow-big"></div>
+          <div className="hero-glow-small"></div>
+        </div>
         <Container className="home-hero-inner">
           <AnimatedHeroTitle text="A creative Web Designer & Developer with 14 years of experience designing smart, modern websites & coding them into reality." />
           <Link className="button button-small" href="/contact">
@@ -26,13 +28,11 @@ export default async function HomePage() {
 
       <section className="client-strip star-field">
         <Container>
-          <p>Companies I&apos;ve worked with</p>
-          <div className="client-logos" aria-label="Companies worked with">
-            <span>KCO</span>
-            <span>CCL Design</span>
-            <span>Contact Advantage</span>
-            <span>CCL</span>
-          </div>
+          <p className="client-strip-label">
+            Companies I&apos;ve worked with
+          </p>
+
+          <ClientLogoMarquee />
         </Container>
       </section>
 

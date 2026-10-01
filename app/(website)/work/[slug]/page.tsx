@@ -2,25 +2,23 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PortableContent } from "@/components/content/PortableContent";
+import { TextContent } from "@/components/content/TextContent";
 import { Container } from "@/components/layout/Container";
 import { getProject, getProjects } from "@/lib/content";
-import { getImageUrl } from "@/lib/media";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateStaticParams() {
-  const projects = await getProjects();
-  return projects.map((project) => ({ slug: project.slug }));
+export function generateStaticParams() {
+  return getProjects().map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = await getProject(slug);
+  const project = getProject(slug);
 
   if (!project) return {};
 
@@ -32,15 +30,9 @@ export async function generateMetadata({
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = await getProject(slug);
+  const project = getProject(slug);
 
   if (!project) notFound();
-
-  const imageUrl = getImageUrl(
-    project.coverImage,
-    project.coverImageUrl || "/images/project-placeholder.svg",
-    1800,
-  );
 
   const details = [
     ["Role", project.role],
@@ -70,10 +62,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <Container>
         <Image
           className="project-cover"
-          src={imageUrl || "/images/project-placeholder.svg"}
+          src={project.coverImage || "/images/project-placeholder.svg"}
           width={1800}
           height={1100}
-          alt=""
+          alt={`${project.title} project cover`}
           priority
         />
 
@@ -111,31 +103,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.overview?.length ? (
               <section>
                 <p className="eyebrow">Overview</p>
-                <PortableContent value={project.overview} />
+                <TextContent paragraphs={project.overview} />
               </section>
             ) : null}
             {project.challenge?.length ? (
               <section>
                 <h2>The challenge</h2>
-                <PortableContent value={project.challenge} />
+                <TextContent paragraphs={project.challenge} />
               </section>
             ) : null}
             {project.process?.length ? (
               <section>
                 <h2>Process</h2>
-                <PortableContent value={project.process} />
+                <TextContent paragraphs={project.process} />
               </section>
             ) : null}
             {project.solution?.length ? (
               <section>
                 <h2>The solution</h2>
-                <PortableContent value={project.solution} />
+                <TextContent paragraphs={project.solution} />
               </section>
             ) : null}
             {project.outcome?.length ? (
               <section>
                 <h2>Outcome</h2>
-                <PortableContent value={project.outcome} />
+                <TextContent paragraphs={project.outcome} />
               </section>
             ) : null}
           </article>
@@ -143,27 +135,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {project.gallery?.length ? (
           <div className="gallery">
-            {project.gallery.map((item, index) => {
-              const galleryImage = getImageUrl(
-                item.image,
-                item.imageUrl,
-                1600,
-              );
-
-              if (!galleryImage) return null;
-
-              return (
-                <figure key={item._key || galleryImage}>
-                  <Image
-                    src={galleryImage}
-                    width={1600}
-                    height={1000}
-                    alt={item.alt || ""}
-                  />
-                  {item.caption ? <figcaption>{item.caption}</figcaption> : null}
-                </figure>
-              );
-            })}
+            {project.gallery.map((item) => (
+              <figure key={item.src}>
+                <Image
+                  src={item.src}
+                  width={1600}
+                  height={1000}
+                  alt={item.alt}
+                />
+                {item.caption ? <figcaption>{item.caption}</figcaption> : null}
+              </figure>
+            ))}
           </div>
         ) : null}
 

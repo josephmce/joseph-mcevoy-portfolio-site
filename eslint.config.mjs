@@ -1,7 +1,9 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 
-export default defineConfig([
+const eslintConfig = defineConfig([
   ...nextVitals,
-  globalIgnores([".next/**", "node_modules/**", "sanity.types.ts"]),
+  globalIgnores([".next/**", "node_modules/**"]),
 ]);
+
+export default eslintConfig;

@@ -1,26 +1,26 @@
 import type { MetadataRoute } from "next";
 import { getPosts, getProjects } from "@/lib/content";
+import { siteUrl } from "@/lib/site";
 
-const baseUrl = "https://www.example.com";
-
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [projects, posts] = await Promise.all([getProjects(), getPosts()]);
+export default function sitemap(): MetadataRoute.Sitemap {
+  const projects = getProjects();
+  const posts = getPosts();
 
   const staticRoutes = ["", "/work", "/about", "/services", "/blog", "/contact"];
 
   return [
     ...staticRoutes.map((route) => ({
-      url: `${baseUrl}${route}`,
+      url: `${siteUrl}${route}`,
       lastModified: new Date(),
     })),
     ...projects.map((project) => ({
-      url: `${baseUrl}/work/${project.slug}`,
+      url: `${siteUrl}/work/${project.slug}`,
       lastModified: project.projectDate
         ? new Date(project.projectDate)
         : new Date(),
     })),
     ...posts.map((post) => ({
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `${siteUrl}/blog/${post.slug}`,
       lastModified: new Date(post.publishedAt),
     })),
   ];

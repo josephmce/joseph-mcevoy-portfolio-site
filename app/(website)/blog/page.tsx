@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: "Articles about web development, UX/UI, and graphic design.",
 };
 
-export default async function BlogPage() {
-  const posts = await getPosts();
+export default function BlogPage() {
+  const posts = getPosts();
 
   return (
     <main className="page">
@@ -25,7 +25,7 @@ export default async function BlogPage() {
 
         <div className="blog-grid">
           {posts.map((post) => (
-            <BlogCard key={post._id} post={post} />
+            <BlogCard key={post.id} post={post} />
           ))}
         </div>
       </Container>

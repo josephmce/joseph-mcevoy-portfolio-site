@@ -1,56 +1,39 @@
-import { client } from "@/sanity/lib/client";
-import { isSanityConfigured } from "@/sanity/env";
-import {
-  featuredProjectsQuery,
-  postBySlugQuery,
-  postsQuery,
-  projectBySlugQuery,
-  projectsQuery,
-  testimonialsQuery,
-} from "@/sanity/lib/queries";
-import {
-  samplePosts,
-  sampleProjects,
-  sampleTestimonials,
-} from "@/lib/sample-data";
+import { posts } from "@/content/posts";
+import { projects } from "@/content/projects";
+import { testimonials } from "@/content/testimonials";
 import type { Post, Project, Testimonial } from "@/types/content";
 
-export async function getProjects(): Promise<Project[]> {
-  if (!isSanityConfigured) return sampleProjects;
-  return (await client.fetch(projectsQuery)) as Project[];
+function newestFirst<T extends { projectDate?: string; publishedAt?: string }>(
+  items: T[],
+): T[] {
+  return [...items].sort((a, b) => {
+    const aDate = a.projectDate || a.publishedAt || "";
+    const bDate = b.projectDate || b.publishedAt || "";
+
+    return bDate.localeCompare(aDate);
+  });
 }
 
-export async function getFeaturedProjects(): Promise<Project[]> {
-  if (!isSanityConfigured) {
-    return sampleProjects.filter((project) => project.featured);
-  }
-
-  return (await client.fetch(featuredProjectsQuery)) as Project[];
+export function getProjects(): Project[] {
+  return [...projects].sort((a, b) => a.order - b.order);
 }
 
-export async function getProject(slug: string): Promise<Project | null> {
-  if (!isSanityConfigured) {
-    return sampleProjects.find((project) => project.slug === slug) ?? null;
-  }
-
-  return (await client.fetch(projectBySlugQuery, { slug })) as Project | null;
+export function getFeaturedProjects(): Project[] {
+  return getProjects().filter((project) => project.featured);
 }
 
-export async function getPosts(): Promise<Post[]> {
-  if (!isSanityConfigured) return samplePosts;
-  return (await client.fetch(postsQuery)) as Post[];
+export function getProject(slug: string): Project | null {
+  return projects.find((project) => project.slug === slug) ?? null;
 }
 
-export async function getPost(slug: string): Promise<Post | null> {
-  if (!isSanityConfigured) {
-    return samplePosts.find((post) => post.slug === slug) ?? null;
-  }
-
-  return (await client.fetch(postBySlugQuery, { slug })) as Post | null;
+export function getPosts(): Post[] {
+  return newestFirst(posts);
 }
 
+export function getPost(slug: string): Post | null {
+  return posts.find((post) => post.slug === slug) ?? null;
+}
 
-export async function getTestimonials(): Promise<Testimonial[]> {
-  if (!isSanityConfigured) return sampleTestimonials;
-  return (await client.fetch(testimonialsQuery)) as Testimonial[];
+export function getTestimonials(): Testimonial[] {
+  return testimonials;
 }

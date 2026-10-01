@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getImageUrl } from "@/lib/media";
 import type { Project } from "@/types/content";
 
 type ProjectCardProps = {
@@ -8,18 +7,12 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const imageUrl = getImageUrl(
-    project.coverImage,
-    project.coverImageUrl || "/images/project-placeholder.svg",
-    1200,
-  );
-
   return (
     <article className="project-card">
       <Link className="project-card-image" href={`/work/${project.slug}`}>
         <Image
-          src={imageUrl || "/images/project-placeholder.svg"}
-          alt=""
+          src={project.coverImage || "/images/project-placeholder.svg"}
+          alt={`${project.title} project preview`}
           width={1200}
           height={800}
         />

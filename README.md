@@ -1,70 +1,140 @@
-# Next.js + Sanity Portfolio Starter
+# Joseph McEvoy Portfolio
 
-A portfolio starter for a web developer, web/UX designer, and graphic designer.
+A personal portfolio built with Next.js, React, and TypeScript.
 
-## Included
+The project intentionally has **no CMS and no database**. Portfolio projects,
+blog posts, and testimonials are maintained directly in small TypeScript content
+files, which keeps the site simple and removes the previous Sanity dependency.
 
-- Next.js App Router and TypeScript
-- Responsive portfolio homepage
-- Filterable work index
-- Dynamic project case-study pages
-- Blog index and dynamic blog pages
-- Web development, web design, UX/UI, graphic design, and branding categories
-- Embedded Sanity Studio at `/studio`
-- Sanity schemas for projects, posts, categories, services, testimonials, authors, and site settings
-- Homepage testimonials section populated from Sanity
-- Dynamic metadata, sitemap, robots.txt, and a contact form route
-- Local sample content used until Sanity environment variables are supplied
+## Stack
 
-## 1. Install
+- Next.js App Router
+- React
+- TypeScript
+- Plain CSS in `app/globals.css`
+- Local content files in `content/`
+
+## Install and run
 
 ```bash
 npm install
-```
-
-## 2. Create a Sanity project
-
-Either create a project at Sanity's management website or run:
-
-```bash
-npx sanity init
-```
-
-Copy `.env.example` to `.env.local` and add the project ID:
-
-```env
-NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_API_VERSION=2026-01-01
-```
-
-Add `http://localhost:3000` as a CORS origin in the Sanity project settings. Add the production domain later.
-
-## 3. Run locally
-
-```bash
 npm run dev
 ```
 
-Open:
+Open `http://localhost:3000`.
 
-- Website: http://localhost:3000
-- Studio: http://localhost:3000/studio
+## Where content lives
 
-Without Sanity variables, the public website displays local sample content. The Studio requires a valid Sanity project.
+```text
+content/
+├── projects.ts       Portfolio projects and case-study copy
+├── posts.ts          Blog articles
+└── testimonials.ts   Homepage testimonials
+```
 
-## 4. Add content
+### Add a project
 
-Create project categories first, then projects and posts. Slugs are generated from titles in Studio.
+1. Add project images beneath `public/images/`.
+2. Add an object to `content/projects.ts`.
+3. Give it a unique `id` and `slug`.
+4. Set `featured: true` if it should appear on the home page.
+5. Add case-study paragraphs using the simple string arrays such as
+   `overview`, `challenge`, `process`, `solution`, and `outcome`.
 
-## 5. Contact form
+Example:
 
-`app/api/contact/route.ts` validates submissions but deliberately does not send email. Connect it to Resend, Mailchimp Transactional, SendGrid, or your preferred provider before production.
+```ts
+{
+  id: "my-project",
+  title: "My Project",
+  slug: "my-project",
+  summary: "Short description of the work.",
+  featured: true,
+  role: "Full Stack Developer",
+  categories: [
+    { title: "Web Development", slug: "web-development" }
+  ],
+  technologies: ["Next.js", "TypeScript"],
+  coverImage: "/images/my-project/cover.jpg",
+  overview: [
+    "First overview paragraph.",
+    "Second overview paragraph."
+  ]
+}
+```
 
-## Suggested next steps
+The project will automatically be available at `/work/my-project`.
 
-- Replace placeholder SVG artwork with your screenshots and graphic design images
-- Add Sanity preview/visual editing
-- Add spam protection and an email service to the contact form
-- Generate Sanity types with Sanity TypeGen
-- Deploy the frontend to Vercel and configure the production Sanity CORS origin
+### Add a blog post
+
+Add an object to `content/posts.ts`. Each item in `body` is rendered as a
+paragraph.
+
+```ts
+{
+  id: "my-post",
+  title: "My Post",
+  slug: "my-post",
+  excerpt: "Short description.",
+  publishedAt: "2026-09-29",
+  categories: ["Development"],
+  coverImage: "/images/my-post.jpg",
+  body: [
+    "First paragraph.",
+    "Second paragraph."
+  ]
+}
+```
+
+The article will automatically be available at `/blog/my-post`.
+
+### Edit testimonials
+
+Edit `content/testimonials.ts`. If the array is empty, the testimonials section
+will not appear on the home page.
+
+## Images
+
+Static images belong in `public/images/`. Reference them from content files with
+paths beginning with `/images/`.
+
+## Site URL / SEO
+
+The site no longer hardcodes `example.com`.
+
+For production, copy `.env.example` to `.env.local` and set:
+
+```env
+SITE_URL=https://your-domain.com
+```
+
+If `SITE_URL` is not set, local development falls back to
+`http://localhost:3000`.
+
+The value is used by metadata, `robots.txt`, and `sitemap.xml`.
+
+## Contact form
+
+The existing contact form and `/api/contact` route are unchanged. The route
+validates submissions but does not yet send email. An email service can be added
+later without changing the rest of the portfolio content system.
+
+## Main routes
+
+- `/` — Home
+- `/about` — About
+- `/work` — Projects
+- `/work/[slug]` — Project case study
+- `/services` — Services
+- `/blog` — Blog
+- `/blog/[slug]` — Article
+- `/contact` — Contact
+
+## Useful commands
+
+```bash
+npm run dev
+npm run typecheck
+npm run lint
+npm run build
+```

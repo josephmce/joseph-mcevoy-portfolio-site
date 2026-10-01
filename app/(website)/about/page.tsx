@@ -13,32 +13,33 @@ const personalTags = ["Music", "Gym", "Walking"];
 export default function AboutPage() {
   return (
     <main className="about-page star-field">
-      <section className="about-hero">
-        <Container className="about-hero-grid">
-          <div>
-            <h1>About Me</h1>
-            <p>
-              Learn more about my journey, my skills, and how I combine design
-              and development to build great digital experiences.
-            </p>
-          </div>
-          <div className="about-hero-art">
-            <Image
-              src="/images/about-hero-placeholder.svg"
-              alt="Placeholder for Joseph McEvoy portrait"
-              width={900}
-              height={720}
-              priority
-            />
-          </div>
-        </Container>
-      </section>
+    <section className="about-hero">
+      <Container className="about-hero-grid">
+        <div className="about-hero-copy">
+          <h1>About Me</h1>
+          <p>
+            Learn more about my journey, my skills, and how I combine design
+            and development to build great digital experiences.
+          </p>
+        </div>
+
+        <div className="about-hero-art">
+          <Image
+            src="/images/about/profile-picture.jpg"
+            alt="Joseph McEvoy"
+            fill
+            priority
+            sizes="(max-width: 800px) 100vw, min(57.5vw, 690px)"
+          />
+        </div>
+      </Container>
+    </section>
 
       <section className="about-section">
         <Container className="about-grid professional-grid">
           <div className="about-image-card">
             <Image
-              src="/images/about-professional-placeholder.svg"
+              src="/images/about/joseph-2.jpg"
               alt="Placeholder for professional portrait"
               width={900}
               height={700}
@@ -92,7 +93,7 @@ export default function AboutPage() {
           </div>
           <div className="about-image-card personal-collage">
             <Image
-              src="/images/about-personal-placeholder.svg"
+              src="/images/about/about-personal.jpg"
               alt="Placeholder for personal photo collage"
               width={900}
               height={700}

@@ -5,6 +5,80 @@ import type { Project } from "@/types/content";
 // scripts/download-framer-project-assets.ps1 script.
 export const projects: Project[] = [
 {
+  id: "webhub",
+  order: 2,
+  title: "WebHub - Website Content Management",
+  slug: "webhub",
+  summary:
+    "A custom ASP.NET Core MVC administration platform for managing CCL Design's multilingual website content, translations and page routes, with vacancy management and a planned expansion into news articles and people profiles.",
+  featured: true,
+  projectDate: "2026-10-14",
+  client: "CCL Design",
+  role: "Full Stack Web Developer and UX/UI Designer",
+  categories: [
+    { title: "Web Development", slug: "web-development" },
+    { title: "UX/UI", slug: "ux-ui" },
+    { title: "Web Applications", slug: "web-applications" },
+  ],
+  services: [
+    "Requirements gathering",
+    "Application architecture",
+    "UX/UI design",
+    "Frontend development",
+    "Backend development",
+    "Relational database design",
+    "Translation management",
+    "Content management workflows",
+    "Legacy system integration",
+    "Testing and deployment",
+  ],
+  technologies: [
+    "ASP.NET Core MVC",
+    ".NET 10",
+    "C#",
+    "Razor",
+    "Entity Framework Core",
+    "LINQ",
+    "SQL Server",
+    "SQL Server Management Studio",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "RESX resource files",
+    "Git/GitHub",
+    "IIS",
+  ],
+  designTools: ["Figma"],
+  coverImage: "/images/projects/webhub/cover.png",
+  overview: [
+    "I developed WebHub as a central administration platform for CCL Design's website, giving content editors a dedicated interface for maintaining translations, language-specific page routes and structured website content.",
+    "The application is built with ASP.NET Core MVC, C# and Razor, with Entity Framework Core handling access to a SQL Server database. It supports the existing ASP.NET Web Forms website while providing a foundation for the site's migration to ASP.NET Core.",
+    "Translation management forms the core of the platform. The wider development scope also includes bringing vacancy administration into WebHub, followed by SQL-backed news articles and people profiles managed through the same application.",
+  ],
+  challenge: [
+    "Website content was spread across separate language-specific pages and resource files, making updates repetitive and difficult to track. Editors needed a clearer way to find content, compare translations and maintain consistency across English, German, Spanish and Chinese.",
+    "The system also needed to connect readable content labels with the technical resource keys, page references and URL slugs used by the website. Changes had to work with the existing application while supporting a more maintainable architecture for future development.",
+    "A further challenge was designing the platform so that additional languages and content types could be introduced without rebuilding the translation system or creating separate administration tools for each area of the website.",
+  ],
+  process: [
+    "I designed a relational database structure covering languages, resource groups, translation keys, translated values, page routes and resource-generation history. Resource groups organise content by page or shared component, while translation keys identify individual headings, labels, messages and other editable values.",
+    "I implemented the data layer using Entity Framework Core, defining relationships and unique constraints to prevent duplicate resource names, duplicate keys within a group and conflicting language identifiers. Language records distinguish URL codes such as en and de from culture codes such as en-GB and de-DE.",
+    "I built Razor-based administration screens for creating, viewing and updating translation content, with search and filtering to help users locate the relevant page, resource group or key. This brings content editing into a browser-based workflow instead of requiring routine changes directly in source files.",
+    "I developed resource export functionality to generate RESX files for the existing Web Forms website, with generation history recorded in the database. The same centrally managed content also supports the Core website's database-driven translation approach.",
+    "I added page-route management to associate resource groups with language-specific URL slugs and the underlying website page references. This supplies the route information used by the website for translated navigation and language switching, alongside its canonical, hreflang and redirect handling.",
+    "I worked through configuration and integration issues across the application, including database-schema alignment, connection strings, Entity Framework queries, form submissions and resource-file handling. The aim was to make the administration workflow reliable within the existing SQL Server and IIS environment.",
+    "For vacancy management, the work includes adapting the existing recruitment administration functionality for WebHub, covering vacancy content, recruitment sites and publication status. This needs to remain compatible with the website's listing, detail and application workflows.",
+    "I also scoped the next stage of content management: multilingual news articles stored in SQL Server and edited within WebHub. The proposed editor supports categories, main images and vertically reorderable content blocks, including image-and-text sections and linked content cards.",
+    "The planned news and people modules will reuse the existing language records while storing translations against each individual article or profile. Content will be able to exist in a single language, with additional translations added independently and further languages supported through the shared language model.",
+  ],
+  outcome: [
+    "WebHub provides a central place to manage website translations and translated page routes, reducing the need to edit individual resource files manually and helping maintain consistency across the site's supported languages.",
+    "The resource export workflow connects the new administration platform with the existing Web Forms website, allowing content management to improve while the public site's technical migration progresses separately.",
+    "The application establishes a reusable foundation for broader website administration. Vacancy management is part of the platform's ongoing expansion, with news articles and people profiles planned as further SQL-backed modules.",
+    "The longer-term goal is to give editors a consistent interface for managing multilingual website content, recruitment information, news and people profiles, supported by a shared database structure and maintainable .NET application.",
+  ],
+},
+{
   id: "ccl-design-website-2026",
   order: 1,
   title: "CCL Design Website 2026",
@@ -78,7 +152,7 @@ export const projects: Project[] = [
 },
   {
     id: "ccl-design-website",
-    order: 2,
+    order: 4,
     title: "CCL Design Website 2022",
     slug: "ccl-design-website",
     summary:
@@ -120,7 +194,7 @@ export const projects: Project[] = [
   },
   {
     id: "web-portal",
-    order: 1,
+    order: 3,
     title: "Web Portal",
     slug: "web-portal",
     summary:
@@ -161,7 +235,7 @@ export const projects: Project[] = [
   },
   {
     id: "t-shirt-designs-andother-products",
-    order: 3,
+    order: 5,
     title: "T-Shirt Designs (& Other Products)",
     slug: "t-shirt-designs-andother-products",
     summary:
@@ -209,7 +283,7 @@ export const projects: Project[] = [
   },
   {
     id: "b2b-landing-page-design",
-    order: 5,
+    order: 6,
     title: "B2B Landing Page Design",
     slug: "b2b-landing-page-design",
     summary:
@@ -233,7 +307,7 @@ export const projects: Project[] = [
   },
   {
     id: "ecommerce-site-reactjs",
-    order: 4,
+    order: 7,
     title: "React eCommerce Practice Project",
     slug: "ecommerce-site-reactjs",
     summary:

@@ -55,12 +55,20 @@ export default function AboutPage() {
               combining strong visual design skills with hands-on coding ability.
             </p>
             <p>
-              My background includes UX initiatives, developing CMS-driven
-              websites and collaborating across marketing, development and product
-              teams. I use modern frontend tools alongside established .NET
-              systems, with Figma, Adobe Creative Suite and 3D tools forming part
-              of the wider design workflow.
+              My background includes UX initiatives, designing and developing websites and web 
+              applications, including CMS-driven websites, while collaborating across 
+              marketing, development and product teams. I work with modern
+              frontend technologies including React.js and Next.js, alongside 
+              .NET and .NET Core applications. I also have experience with 
+              Node.js and Express, Python and Django, with Figma, Adobe
+              Creative Suite and 3D tools supporting the wider design workflow.
             </p>
+            <p>On the backend and infrastructure side, I have experience working 
+              with SQL Server, MySQL, PostgreSQL and MongoDB, including relational 
+              database design, tables, stored procedures, views and queries. I also 
+              work with IIS, Docker and containerised application environments, 
+              supporting the development, deployment and hosting of data-driven 
+              websites and web applications.</p>
             <p>
               Whether designing in Figma, coding in VS Code or optimising SEO, I
               favour a problem-solving mindset and a user-first approach to every
@@ -78,14 +86,12 @@ export default function AboutPage() {
           <div className="about-copy">
             <span className="mini-label">Personal Life</span>
             <h2>Outside of Work</h2>
-            <p>I enjoy lifting weights and going out for long walks with my dog.</p>
+            <p>Outside of work, I enjoy lifting weights and getting out for long walks with my dog. I like keeping active in general and getting outdoors whenever I can.</p>
             <p>
-              I also enjoy travelling, live music and learning new creative
-              skills outside of web and product work.
+              I also enjoy travelling, going to see live music and picking up new creative skills and interests outside of web and product work. I’m always interested in learning something new, whether it’s creative, technical or just something completely different.
             </p>
             <p>
-              Formula 1, music and getting outdoors are usually somewhere in the
-              mix when I&apos;m away from a screen.
+              Formula 1 is a big interest of mine as well and have recently attended the British GP in 2024 and 2025.
             </p>
             <div className="tag-list about-tags">
               {personalTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}

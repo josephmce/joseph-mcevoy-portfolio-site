@@ -19,7 +19,7 @@ export default function HomePage() {
           <div className="hero-glow-small"></div>
         </div>
         <Container className="home-hero-inner">
-          <AnimatedHeroTitle text="A creative Web Designer & Developer with 14 years of experience designing smart, modern websites & coding them into reality." />
+          <AnimatedHeroTitle text="A creative Full Stack Web Developer & UX/UI Designer with 14 years of experience designing smart, modern websites & coding them into reality." />
           <Link className="button button-small" href="/contact">
             Get in touch ↗
           </Link>

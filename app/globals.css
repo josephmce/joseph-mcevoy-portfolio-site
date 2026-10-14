@@ -1124,7 +1124,7 @@ a {
   border-radius: 12px;
   background: #111;
   box-shadow: var(--shadow);
-    max-height: 500px;
+    max-height: 350px;
     object-fit: cover;
 }
 

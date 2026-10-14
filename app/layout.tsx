@@ -12,7 +12,7 @@ const figtree = Figtree({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Joseph McEvoy — Developer & Designer",
+    default: "Joseph McEvoy - Developer & Designer",
     template: "%s | Joseph McEvoy",
   },
   description:

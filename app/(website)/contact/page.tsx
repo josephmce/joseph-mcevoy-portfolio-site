@@ -23,10 +23,9 @@ export default function ContactPage() {
           <section className="contact-form-panel">
             <div className="contact-panel-heading">
               <span className="mini-label">Start a conversation</span>
-              <h2>Tell me what you&apos;re working on.</h2>
+              <h2>Get in touch</h2>
               <p>
-                Send over a few details and I&apos;ll have everything I need to get
-                the conversation started.
+                Whether it's a project, role or just a quick chat, feel free to send me a message.
               </p>
             </div>
             <ContactForm />

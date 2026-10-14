@@ -121,7 +121,6 @@ a {
   width: 31px;
   height: 31px;
   place-items: center;
-  border: 2px solid currentColor;
   color: var(--text);
   /* font-family: "Figtree", "Figtree Placeholder", serif; */
   font-size: 19px;
@@ -1125,6 +1124,8 @@ a {
   border-radius: 12px;
   background: #111;
   box-shadow: var(--shadow);
+    max-height: 500px;
+    object-fit: cover;
 }
 
 .case-study-layout {

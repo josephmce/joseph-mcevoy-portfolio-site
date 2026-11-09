@@ -138,14 +138,14 @@ export const projects: Project[] = [
   coverImage: "/images/projects/ccl-design-website-2026/cover.png",
   imageSlider: [
     {
-      src: "/images/projects/ccl-design-website-2026/ccl-design-website-2.gif",
-      alt: "Animated walkthrough of the CCL Design Decorative Solutions page",
-      caption: "Decorative Solutions",
-    },
-    {
       src: "/images/projects/ccl-design-website-2026/ccl-design-website-1.gif",
       alt: "Animated walkthrough of the CCL Design Color, Material, Finish page",
       caption: "Color, Material, Finish",
+    },
+    {
+      src: "/images/projects/ccl-design-website-2026/ccl-design-website-2.gif",
+      alt: "Animated walkthrough of the CCL Design Decorative Solutions page",
+      caption: "Decorative Solutions",
     },
   ],
   overview: [

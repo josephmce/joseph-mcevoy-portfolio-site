@@ -100,6 +100,27 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </aside>
 
           <article className="case-study-content">
+            {project.sections?.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                <div className="prose">
+                  {section.blocks.map((block, index) => {
+                    if (block.type === "heading") return <h3 key={index}>{block.text}</h3>;
+                    if (block.type === "link") return (
+                      <p key={index}>
+                        <a href={block.href} target="_blank" rel="noreferrer">{block.text}</a>
+                      </p>
+                    );
+                    if (block.type === "list") return (
+                      <ul key={index}>
+                        {block.items.map((item) => <li key={item}><strong>{item}</strong></li>)}
+                      </ul>
+                    );
+                    return <p key={index}>{block.text}</p>;
+                  })}
+                </div>
+              </section>
+            ))}
             {project.overview?.length ? (
               <section>
                 <p className="eyebrow">Overview</p>

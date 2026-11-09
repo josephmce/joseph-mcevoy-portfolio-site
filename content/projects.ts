@@ -198,7 +198,7 @@ export const projects: Project[] = [
     title: "Web Portal",
     slug: "web-portal",
     summary:
-      "A UX and UI redesign of a SaaS cloud and security portal, shaped through user interviews, affinity mapping, wireframing and a reusable Figma design system.",
+      "Web portal project created in Figma for a SaaS company, utilising components, variables etc, hooked up to a design system. Developed through conducting user research, user interviews and collating findings to produce a product users are keen to use.",
     featured: true,
     projectDate: "2025-08-03",
     employer: "Ekco",
@@ -217,18 +217,165 @@ export const projects: Project[] = [
     ],
     designTools: ["Figma"],
     coverImage: "/images/projects/web-portal/cover.png",
-    overview: [
-      "This project covered the third major iteration of a SaaS portal used to manage cloud and security services. The interface was designed in Figma using reusable components, variables and a supporting design system.",
-    ],
-    challenge: [
-      "The portal had originally been based on a generic template and needed to evolve alongside a growing product. The redesign had to reflect real user needs while remaining practical for product, engineering, cloud and security teams to deliver.",
-    ],
-    process: [
-      "I interviewed end users about the dashboard and wider portal experience, captured observations and quotes, and organised the findings through affinity mapping.",
-      "From those themes I produced actionable insights and a concise research summary, then moved into wireframes, UI design and a reusable design system to support faster future iterations.",
-    ],
-    outcome: [
-      "Across three major redesigns delivered between 2022 and 2025, the portal work improved usability and contributed to stronger engagement. The case study records up to a 30% reduction in bounce rate and a 20% increase in average session duration.",
+    sections: [
+      {
+        "title": "Introduction",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "This is a project for a SaaS company for users to manager their cloud & security systems. Created in Figma, utilising components, variables etc, hooked up to a design system. Developed through conducting user research, user interviews and collating findings to produce a product users are keen to use."
+          }
+        ]
+      },
+      {
+        "title": "Context",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "When I started at Ekco I was tasked with redesigning their portal which at that point was using a free template from online. During my time there the Portal went through 3 redesigns to suit the evolving needs of the platform. Below outlines the UX process and the UI design of the 3rd iteration."
+          }
+        ]
+      },
+      {
+        "title": "Impact",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "Delivered three major redesigns between 2022–2025, each having measurable impact. Improved usability, reducing error rates by up to 30% & reduced support ticket requests by 22%."
+          },
+          {
+            "type": "paragraph",
+            "text": "Each release aligned closely with product evolution & user feedback, working to tight timelines & in close collaboration with engineering, product, cloud, and security stakeholders."
+          },
+          {
+            "type": "list",
+            "items": [
+              "Up to 30% reduction in error rates",
+              "22% reduction in support ticket requests"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "User Experience",
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "User Interviews"
+          },
+          {
+            "type": "paragraph",
+            "text": "I conducted interviews with end users to gather qualitative feedback on their experiences with the Ekco portal, focusing on both the dashboard and overall usability"
+          },
+          {
+            "type": "link",
+            "text": "User Interviews >",
+            "href": "https://onedrive.live.com/:x:/g/personal/DD49806AD365FCF4/EaXn4Wf0hTVJhxYdwylR9F8BO7CQX4egZ_MKniafVXQiig?resid=DD49806AD365FCF4!s67e1e7a585f4493587161dc32951f45f&ithint=file%2Cxlsx&e=yPCqRs&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3gvYy9kZDQ5ODA2YWQzNjVmY2Y0L0VhWG40V2YwaFRWSmh4WWR3eWxSOUY4Qk83Q1FYNGVnWl9NS25pYWZWWFFpaWc_ZT15UENxUnM"
+          },
+          {
+            "type": "heading",
+            "text": "Note-Taking & Affinity Mapping"
+          },
+          {
+            "type": "paragraph",
+            "text": "I then collated observations and direct quotes from interviews, then synthesized findings using an affinity map to identify recurring themes and pain points."
+          },
+          {
+            "type": "link",
+            "text": "Affinity Map >",
+            "href": "https://www.figma.com/board/uhTAADJGcu68MtL5qJ75Ko/Affinity-Map---Insights?node-id=0-1&t=9K18ck435CSpS4b1-1"
+          },
+          {
+            "type": "heading",
+            "text": "Insights Generation"
+          },
+          {
+            "type": "paragraph",
+            "text": "Extracted key insights from grouped feedback, highlighting user needs, frustrations, and expectations. This allowed me to derive specific actions and recommendations based on insights to inform design decisions and improve the user experience."
+          },
+          {
+            "type": "link",
+            "text": "Insights >",
+            "href": "https://www.figma.com/board/uhTAADJGcu68MtL5qJ75Ko/Affinity-Map---Insights?node-id=0-1&t=9K18ck435CSpS4b1-1"
+          },
+          {
+            "type": "heading",
+            "text": "Summary Report"
+          },
+          {
+            "type": "paragraph",
+            "text": "Finally I compiled a concise summary of research findings, supported by evidence from user quotes and mapped themes."
+          },
+          {
+            "type": "link",
+            "text": "Summary Report >",
+            "href": "https://www.figma.com/board/uhTAADJGcu68MtL5qJ75Ko/Affinity-Map---Insights?node-id=0-1&t=9K18ck435CSpS4b1-1"
+          }
+        ]
+      },
+      {
+        "title": "User Interface",
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Wireframes"
+          },
+          {
+            "type": "paragraph",
+            "text": "I moved onto prototyping some wireframes for the dashboard after gathering all the useful user research"
+          },
+          {
+            "type": "link",
+            "text": "Wireframes >",
+            "href": "https://www.figma.com/proto/L1XwxZXt6qQKGiQ6X3gNL9/Wireframes?node-id=1-12292&viewport=-4251%2C210%2C0.19&t=nMVetvUN97YO20Hk-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12292&show-proto-sidebar=1"
+          },
+          {
+            "type": "heading",
+            "text": "UI Design"
+          },
+          {
+            "type": "paragraph",
+            "text": "After gathering all the information needed from the user search, and prototyping with wireframes, I moved on to creating the designs in Figma for the web portal"
+          },
+          {
+            "type": "link",
+            "text": "UI Design >",
+            "href": "https://www.figma.com/proto/zLZ9hVxADh2BiSCYaud9Tf/Designs?node-id=110-3607&viewport=1744%2C844%2C0.24&t=Vmj5cLli89k2suvD-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=110%3A2767&show-proto-sidebar=1"
+          }
+        ]
+      },
+      {
+        "title": "Design System",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "I created a design system to help speed up design iterations and create a baseline for components etc"
+          },
+          {
+            "type": "link",
+            "text": "Design System >",
+            "href": "https://www.figma.com/design/C99I3KxpZBLbv8THDHJNJ1/Design-System?node-id=0-1&t=3NDR2hTtjIeLL7JC-1"
+          }
+        ]
+      },
+      {
+        "title": "Previous Versions",
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Web Portal V2 Prototype"
+          },
+          {
+            "type": "paragraph",
+            "text": "This is a design that was done as a proposal for how version 2 of the web portal could have looked based on user research and feedback"
+          },
+          {
+            "type": "link",
+            "text": "V2 Prototype >",
+            "href": "https://www.figma.com/proto/zLZ9hVxADh2BiSCYaud9Tf/Designs?node-id=273-572&viewport=332%2C399%2C0.2&t=m64UYPnMxwpTMOkR-0&scaling=contain&content-scaling=fixed&starting-point-node-id=273%3A572"
+          }
+        ]
+      }
     ],
     prototypeUrl:
       "https://www.figma.com/proto/zLZ9hVxADh2BiSCYaud9Tf/Designs?content-scaling=fixed&node-id=110-3607&scaling=scale-down&show-proto-sidebar=1&starting-point-node-id=110%3A2767&t=Vmj5cLli89k2suvD-0&viewport=1744%2C844%2C0.24",

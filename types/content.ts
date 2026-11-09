@@ -22,6 +22,7 @@ export type CaseStudySection = {
     | { type: "paragraph" | "heading"; text: string }
     | { type: "link"; text: string; href: string }
     | { type: "list"; items: string[] }
+    | { type: "slider"; items: GalleryItem[]; label?: string }
   )[];
 };
 
@@ -43,6 +44,7 @@ export type Project = {
   designTools?: string[];
   coverImage: string;
   gallery?: GalleryItem[];
+  imageSlider?: GalleryItem[];
   sections?: CaseStudySection[];
   overview?: string[];
   challenge?: string[];

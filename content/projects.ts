@@ -49,7 +49,7 @@ export const projects: Project[] = [
     "IIS",
   ],
   designTools: ["Figma"],
-  coverImage: "/images/projects/webhub/webhub-1.png",
+  coverImage: "/images/projects/webhub/cover-desktop.png",
   imageSlider: [
     { src: "/images/projects/webhub/webhub-1.png", alt: "WebHub dashboard with translation statistics and quick actions", caption: "Dashboard" },
     { src: "/images/projects/webhub/webhub-2.png", alt: "WebHub vacancy management with filters and job listings", caption: "Vacancy management" },
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     "IIS",
   ],
   designTools: ["Figma", "Photoshop"],
-  coverImage: "/images/projects/ccl-design-website-2026/cover.png",
+  coverImage: "/images/projects/ccl-design-website-2026/cover-laptop.png",
   imageSlider: [
     {
       src: "/images/projects/ccl-design-website-2026/ccl-design-website-1.gif",

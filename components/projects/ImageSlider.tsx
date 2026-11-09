@@ -44,7 +44,7 @@ export function ImageSlider({ items, label = "Project screenshots" }: ImageSlide
         {items.map((item, index) => (
           <figure className="image-slider-slide" key={item.src} role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${items.length}`}>
             <div className="image-slider-image">
-              <Image src={item.src} alt={item.alt} fill sizes="(max-width: 1152px) 100vw, 1120px" />
+              <Image src={item.src} alt={item.alt} fill unoptimized={item.src.toLowerCase().endsWith(".gif")} sizes="(max-width: 1152px) 100vw, 1120px" />
             </div>
             {item.caption ? <figcaption>{item.caption}</figcaption> : null}
           </figure>

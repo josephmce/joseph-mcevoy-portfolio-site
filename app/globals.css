@@ -1235,7 +1235,31 @@ a {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
   border-radius: 12px;
+}
+
+.image-slider-track:hover {
+  scrollbar-color: var(--accent-light) var(--surface);
+}
+
+.image-slider-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.image-slider-track::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 999px;
+}
+
+.image-slider-track::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+}
+
+.image-slider-track::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light);
 }
 
 .image-slider-slide {

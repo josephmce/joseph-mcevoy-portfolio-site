@@ -95,7 +95,7 @@ export const projects: Project[] = [
   title: "CCL Design Website 2026",
   slug: "ccl-design-website-2026",
   summary:
-    "Ongoing development of CCL Design's global website, bringing together a centralised multilingual content system, Umbraco CMS integrations, refreshed page designs and a phased migration to ASP.NET Core.",
+    "A complete migration of CCL Design's global website to ASP.NET Core on .NET 10, delivering a much faster, more responsive experience with SQL Server-backed news, vacancies, translations and URLs managed through WebHub.",
   featured: true,
   projectDate: "2026-10-14",
   client: "CCL Design",
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     "Prototyping",
     "Frontend development",
     "Backend development",
-    "CMS integration",
+    "Content management development",
     "Multilingual content management",
     "Database design and development",
     "Technical SEO",
@@ -119,15 +119,12 @@ export const projects: Project[] = [
     "Testing and deployment",
   ],
   technologies: [
-    "ASP.NET Web Forms",
     "ASP.NET Core MVC",
     ".NET 10",
     "C#",
     "Razor",
     "SQL Server",
     "Entity Framework Core",
-    "Umbraco Heartcore",
-    "REST APIs",
     "JavaScript",
     "jQuery",
     "Bootstrap",
@@ -139,26 +136,39 @@ export const projects: Project[] = [
   ],
   designTools: ["Figma", "Photoshop"],
   coverImage: "/images/projects/ccl-design-website-2026/cover.png",
+  imageSlider: [
+    {
+      src: "/images/projects/ccl-design-website-2026/ccl-design-website-2.gif",
+      alt: "Animated walkthrough of the CCL Design Decorative Solutions page",
+      caption: "Decorative Solutions",
+    },
+    {
+      src: "/images/projects/ccl-design-website-2026/ccl-design-website-1.gif",
+      alt: "Animated walkthrough of the CCL Design Color, Material, Finish page",
+      caption: "Color, Material, Finish",
+    },
+  ],
   overview: [
-    "I am developing and modernising CCL Design's global B2B website, combining new page designs with improvements to content management, multilingual publishing and the underlying application architecture.",
-    "A major part of the work is replacing separate language-specific pages with shared templates backed by centrally managed translations. Alongside this, I have integrated Umbraco Heartcore for news, people profiles and recruitment content, while progressing a phased migration from ASP.NET Web Forms to ASP.NET Core MVC.",
+    "I have converted the entire CCL Design global B2B website from ASP.NET Web Forms to an ASP.NET Core application running on .NET 10, making the site much faster and more responsive while modernising its underlying architecture.",
+    "I replaced separate language-specific pages with shared templates backed by centrally managed translations. I also removed Umbraco for news articles, which now come directly from the SQL Server database. Vacancies already used the SQL Server schema I developed at CCL Design in 2022, which was still in use when I returned. WebHub now provides the central administration interface for news articles and vacancies, alongside translations and language-specific URLs.",
   ],
   challenge: [
     "The website had accumulated separate English, German, Spanish and Chinese pages, making content and layout changes repetitive and increasing the risk of inconsistencies between languages. The translation system needed to support shared pages, translated URLs and a manageable editing workflow.",
-    "Modernising the platform also meant working around established SQL databases, stored procedures, enquiry forms and email processes. New CMS features and the Core migration needed to preserve these integrations while improving maintainability.",
+    "Modernising the platform also meant working around established SQL databases, stored procedures, enquiry forms and email processes. The move to ASP.NET Core and a SQL Server-backed content system needed to preserve these integrations while improving performance and maintainability.",
   ],
   process: [
-    "I developed WebHub, an ASP.NET Core administration application for managing translation resources and page routes. Its SQL-backed structure organises languages, resource groups, translation keys and translated values, with editing, search and export functionality.",
+    "I developed WebHub, an ASP.NET Core administration application for managing news articles, vacancies, translations and page URLs. Its SQL Server-backed structure brings content editing, multilingual publishing and route management into a single administration workflow.",
     "I implemented culture-aware routing and shared page templates for English, German, Spanish and Chinese. This included translated URL slugs, language switching, canonical and hreflang tags, and redirects from legacy addresses. The underlying language model also provides a foundation for adding further languages.",
-    "I integrated Umbraco Heartcore through its APIs to deliver news articles, people profiles and vacancy content. The work covered listings, filtering, pagination, article layouts and language variants, including links to the real English profile or article when a translation is unavailable.",
-    "For recruitment content, I developed import and synchronisation tooling to move existing SQL vacancies into Heartcore, map recruitment sites and handle publication status while retaining the website's established application and database workflows.",
-    "I organised the ASP.NET Core migration into manageable batches covering shared layouts, content pages, locations, news, people, forms and assets. This included adapting existing stored-procedure integrations, retaining Turnstile verification and moving media towards local-first delivery.",
-    "Alongside the development work, I used Figma to create and refine responsive product, sector and campaign page designs. I also worked on redirect mappings, dynamic sitemaps, error handling, accessibility improvements and regression tools to support testing and eventual cutover.",
+    "I removed the Umbraco integration for news articles and designed and implemented their schema in the SQL Server database. The website now retrieves news content directly from SQL Server, with WebHub used to manage it.",
+    "I originally developed the vacancy database schema at CCL Design in 2022, and it was still being used when I returned. Vacancies were already stored in SQL Server and were never managed through Umbraco. I brought vacancy management into WebHub while retaining the existing database structure and recruitment workflows.",
+    "I connected the website's translations and language-specific URLs to the same centrally managed database. Translation updates made in WebHub are reflected instantly on the website, replacing the previous resource-file export workflow.",
+    "I completed the migration of the whole website to ASP.NET Core on .NET 10, covering shared layouts, content pages, locations, news, people, forms and assets. This included adapting existing stored-procedure integrations, retaining Turnstile verification and moving media towards local-first delivery.",
+    "Alongside the development work, I used Figma to create and refine responsive product, sector and campaign page designs. I also worked on redirect mappings, dynamic sitemaps, error handling, accessibility improvements and regression tools to support testing and the completed migration.",
   ],
   outcome: [
-    "The work has established a centralised translation workflow and reduced the need to maintain separate page implementations for each language. Content and routing can be managed more consistently across the global website.",
-    "Umbraco integrations provide structured management of news, people and recruitment content. The vacancy import tooling created all 219 source vacancies as drafts, with publication handled according to their configured status.",
-    "The ASP.NET Core migration is progressing through implementation and validation, with reusable views, local asset handling and testing tools in place. Final browser comparisons, integration testing and deployment checks remain part of the release process.",
+    "The entire website now runs on ASP.NET Core on .NET 10, delivering a much faster and more responsive experience with a more maintainable application architecture.",
+    "News articles are now served directly from the SQL Server database instead of Umbraco. Vacancies continue to use the SQL Server schema I developed in 2022. WebHub provides one place to manage both types of content alongside website translations and URLs.",
+    "Shared multilingual templates and database-driven translations reduce duplicated page maintenance. Translation changes made within WebHub appear instantly on the website, giving editors a consistent workflow for keeping the global site up to date.",
   ],
 },
   {
@@ -167,7 +177,7 @@ export const projects: Project[] = [
     title: "CCL Design Website 2022",
     slug: "ccl-design-website",
     summary:
-      "A complete redesign and development of CCL Design's global B2B website, focused on clearer navigation, stronger UX, improved performance and a more consistent brand experience.",
+      "This project involved the complete redesign and development of CCL Design’s B2B public facing website.",
     featured: true,
     projectDate: "2025-01-25",
     client: "CCL Design",
@@ -188,19 +198,99 @@ export const projects: Project[] = [
     technologies: ["ASP.NET", "C#", "LESS/CSS"],
     designTools: ["Adobe XD", "Photoshop"],
     coverImage: "/images/projects/ccl-design-website/cover.png",
-    overview: [
-      "I led the redesign and development of CCL Design's public B2B website, taking the project from research and stakeholder requirements through interface design and implementation.",
-      "The aim was to modernise the experience, simplify navigation and align the site more closely with the company's global brand while giving the underlying site a maintainable technical foundation.",
-    ],
-    challenge: [
-      "The existing site needed clearer user journeys and a more modern visual system. I reviewed analytics to identify friction and drop-off points, then gathered business requirements directly from stakeholders across the organisation.",
-    ],
-    process: [
-      "I used Google Analytics to identify problem areas, held stakeholder interviews and content meetings, and translated the findings into page designs and prototypes.",
-      "Designs were iterated in Photoshop and Adobe XD before development began. The finished site was built using ASP.NET and C#, with LESS used to speed up and organise styling work.",
-    ],
-    outcome: [
-      "The redesigned site recorded a 24% reduction in bounce rate, around a 34% increase in average session duration and a 130% increase in page views. The project also delivered clearer user flows and a more consistent responsive experience.",
+    sections: [
+      {
+        "title": "CCL Design Website",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "This project involved the complete redesign and development of CCL Design’s B2B public facing website. Below is a video of the site as it was in 2022."
+          },
+          {
+            "type": "link",
+            "text": "View video of full site >",
+            "href": "https://www.youtube.com/watch?v=LBkwpZdF2Os&list=PL3pdFcvOYHyWaLZZEKd_cSrf542AlXGTl&index=5"
+          }
+        ]
+      },
+      {
+        "title": "Context",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "I led the complete redesign and development of ccldesign.com, creating the website from scratch using ASP.NET, C#, and LESS.css. The goal was to modernise the site’s user experience, improve navigation, and align the design with CCL Design’s global branding to ultimately drive more traffic to the site, reduce bounce rates and increase conversions. I translated business and user requirements into responsive layouts, built a scalable backend, and implemented clean, maintainable front-end code. The result was a faster, more accessible, and user-friendly website that delivered improved performance, SEO, and content management flexibility."
+          }
+        ]
+      },
+      {
+        "title": "Impact",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "The impact of the work I carried out on the site resulted in a 24% reduction in bounce rate & around 34% increase in average session duration, and improved conversion rates through clearer user flows. Also a 130% increase in page views."
+          }
+        ]
+      },
+      {
+        "title": "UX Research",
+        "blocks": [
+          {
+            "type": "paragraph",
+            "text": "I began the process of the redesigning and developing the site first by gathering requirements from stakeholders and reviewing site metrics on Google Analytics."
+          },
+          {
+            "type": "heading",
+            "text": "Google Analytics"
+          },
+          {
+            "type": "paragraph",
+            "text": "I began by reviewing the performance of the site overall to pin point any pain points users were having with the site, areas they were dropping off or becoming frustrated"
+          },
+          {
+            "type": "heading",
+            "text": "Stakeholder Interviews & Meetings"
+          },
+          {
+            "type": "paragraph",
+            "text": "I held numerous meetings with stakeholders within the company to gather content based on the insights gained from reviewing the google analytics data."
+          },
+          {
+            "type": "paragraph",
+            "text": "Once these were complete. I moved on to creating designs and prototypes for review by stakeholders."
+          }
+        ]
+      },
+      {
+        "title": "User Interface",
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Designing the Website"
+          },
+          {
+            "type": "paragraph",
+            "text": "For each page of the site I produced designs and prototypes using Photoshop and Adobe XD to envision how it could look and relayed with stakeholders to get feedback, iterating upon them until everyone was happy and the UX requirements were satisfied too."
+          }
+        ]
+      },
+      {
+        "title": "Development",
+        "blocks": [
+          {
+            "type": "heading",
+            "text": "Building the Website"
+          },
+          {
+            "type": "paragraph",
+            "text": "I began building the website once I had all the content and prototypes designed. Using ASP.Net & C# as the basis for the site, and less.js css pre-processor to speed up styling."
+          },
+          {
+            "type": "link",
+            "text": "View video of full site >",
+            "href": "https://www.youtube.com/watch?v=LBkwpZdF2Os&list=PL3pdFcvOYHyWaLZZEKd_cSrf542AlXGTl&index=5"
+          }
+        ]
+      }
     ],
   },
   {
@@ -416,7 +506,7 @@ export const projects: Project[] = [
       "The Spreadshirt account reached more than 8,000 lifetime sales, with several designs ranking highly in marketplace categories. The Redbubble shop also generated steady traffic and additional product sales.",
     ],
     liveUrl: "https://megalawlz.myspreadshop.co.uk/",
-    gallery: [
+    imageSlider: [
       {
         src: "/images/projects/t-shirt-designs/spreadshirt-sales.jpg",
         alt: "Spreadshirt lifetime sales and earnings statistics",

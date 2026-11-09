@@ -16,6 +16,16 @@ export type GalleryItem = {
   caption?: string;
 };
 
+export type CaseStudySection = {
+  title: string;
+  blocks: (
+    | { type: "paragraph" | "heading"; text: string }
+    | { type: "link"; text: string; href: string }
+    | { type: "list"; items: string[] }
+    | { type: "slider"; items: GalleryItem[]; label?: string }
+  )[];
+};
+
 export type Project = {
   id: string;
   order: number;
@@ -34,6 +44,8 @@ export type Project = {
   designTools?: string[];
   coverImage: string;
   gallery?: GalleryItem[];
+  imageSlider?: GalleryItem[];
+  sections?: CaseStudySection[];
   overview?: string[];
   challenge?: string[];
   process?: string[];

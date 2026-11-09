@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { TextContent } from "@/components/content/TextContent";
 import { Container } from "@/components/layout/Container";
+import { ImageSlider } from "@/components/projects/ImageSlider";
 import { getProject, getProjects } from "@/lib/content";
 
 type ProjectPageProps = {
@@ -100,6 +101,28 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </aside>
 
           <article className="case-study-content">
+            {project.sections?.map((section) => (
+              <section key={section.title}>
+                <h2>{section.title}</h2>
+                <div className="prose">
+                  {section.blocks.map((block, index) => {
+                    if (block.type === "slider") return <ImageSlider key={index} items={block.items} label={block.label} />;
+                    if (block.type === "heading") return <h3 key={index}>{block.text}</h3>;
+                    if (block.type === "link") return (
+                      <p key={index}>
+                        <a href={block.href} target="_blank" rel="noreferrer">{block.text}</a>
+                      </p>
+                    );
+                    if (block.type === "list") return (
+                      <ul key={index}>
+                        {block.items.map((item) => <li key={item}><strong>{item}</strong></li>)}
+                      </ul>
+                    );
+                    return <p key={index}>{block.text}</p>;
+                  })}
+                </div>
+              </section>
+            ))}
             {project.overview?.length ? (
               <section>
                 <p className="eyebrow">Overview</p>
@@ -132,6 +155,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ) : null}
           </article>
         </div>
+
+        {project.imageSlider?.length ? (
+          <section className="project-image-slider" aria-label={`${project.title} screenshots`}>
+            <h2>Project screenshots</h2>
+            <ImageSlider items={project.imageSlider} label={`${project.title} screenshots`} />
+          </section>
+        ) : null}
 
         {project.gallery?.length ? (
           <div className="gallery">

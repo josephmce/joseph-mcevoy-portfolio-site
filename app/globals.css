@@ -1222,6 +1222,137 @@ a {
   font-size: 13px;
 }
 
+.project-image-slider {
+  padding-bottom: 70px;
+}
+
+.image-slider {
+  min-width: 0;
+}
+
+.image-slider-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--surface);
+  border-radius: 12px;
+}
+
+.image-slider-track:hover {
+  scrollbar-color: var(--accent-light) var(--surface);
+}
+
+.image-slider-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.image-slider-track::-webkit-scrollbar-track {
+  background: var(--surface);
+  border-radius: 999px;
+}
+
+.image-slider-track::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border: 2px solid var(--surface);
+  border-radius: 999px;
+}
+
+.image-slider-track::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light);
+}
+
+.image-slider-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.image-slider-image {
+  position: relative;
+  aspect-ratio: 2.08;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.image-slider-image img {
+  object-fit: contain;
+}
+
+.image-slider-slide figcaption {
+  padding: 12px 4px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.image-slider-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.image-slider-controls button {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.image-slider-controls button:disabled {
+  opacity: .35;
+  cursor: default;
+}
+
+.image-slider button:focus-visible,
+.image-slider-track:focus-visible {
+  outline: 2px solid var(--accent-light);
+  outline-offset: 3px;
+}
+
+.image-slider-dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image-slider-dots button {
+  min-width: 28px;
+  border: 0;
+  background: transparent;
+}
+
+.image-slider-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--muted-2);
+}
+
+.image-slider-dots button[aria-current="true"] span {
+  background: var(--accent-light);
+  transform: scale(1.4);
+}
+
+.image-slider-count {
+  flex-basis: 100%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .back-link {
   padding: 0 0 80px;
   color: var(--muted);

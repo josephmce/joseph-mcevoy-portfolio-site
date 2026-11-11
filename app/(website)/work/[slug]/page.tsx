@@ -42,11 +42,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const headlineOutcome = project.headlineOutcome || project.outcome?.[0] || (impactParagraph && "text" in impactParagraph ? impactParagraph.text : project.summary);
 
   const details = [
+    ["Status", project.status],
     ["Role", project.role],
     ["Client", project.client || project.employer],
     ["Duration", project.duration],
     ["Services", project.services?.join(", ")],
     ["Technologies", project.technologies?.join(", ")],
+    ["Standards", project.standards?.join(", ")],
     ["Design tools", project.designTools?.join(", ")],
   ].filter((item): item is [string, string] => Boolean(item[1]));
 
@@ -55,6 +57,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="project-hero">
         <Container>
           <div className="tag-list">
+            {project.status ? <span className="tag">{project.status}</span> : null}
             {project.categories.map((category) => (
               <span className="tag" key={category.slug}>
                 {category.title}

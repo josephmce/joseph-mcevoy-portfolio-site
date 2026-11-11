@@ -12,6 +12,258 @@ const cclContentStatus = [
 
 export const projects: Project[] = [
 {
+  "id": "global-it-database",
+  "order": 3,
+  "title": "Global IT Database",
+  "slug": "global-it-database",
+  "summary": "An enterprise IT management application in development to replace CCL's PowerApps system, bringing global site records, verification, reporting and external asset inventories into one interface.",
+  "featured": false,
+  "client": "CCL Design / CCL Industries",
+  "role": "Full Stack Web Developer & UX/UI Designer",
+  "status": "In development",
+  "scope": "UX/UI design, full-stack .NET development, relational data modelling and JSON processing",
+  "headlineOutcome": "Working foundation for global site management, mapping, verification, reporting and external asset inventories. Development is ongoing.",
+  "categories": [
+    {
+      "title": "Web Development",
+      "slug": "web-development"
+    },
+    {
+      "title": "UX/UI",
+      "slug": "ux-ui"
+    },
+    {
+      "title": "Web Applications",
+      "slug": "web-applications"
+    }
+  ],
+  "services": [
+    "UX/UI design",
+    "Full-stack development",
+    "Database design",
+    "Verification workflows",
+    "Interactive mapping",
+    "JSON integration",
+    "Reporting and exports",
+    "Automated testing"
+  ],
+  "technologies": [
+    "ASP.NET Core MVC",
+    ".NET 10",
+    "C#",
+    "Razor",
+    "Entity Framework Core",
+    "SQL Server",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "d3-geo",
+    "Git/GitHub"
+  ],
+  "standards": [
+    "CycloneDX (JSON)"
+  ],
+  "designTools": [
+    "Figma"
+  ],
+  "coverImage": "/images/projects/global-it-database/workspace-dashboard-cover.png",
+  "sections": [
+    {
+      "title": "Overview",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Global IT Database is an enterprise web application designed to simplify how IT information is managed across CCL's international operations."
+        },
+        {
+          "type": "paragraph",
+          "text": "I'm responsible for the UX/UI design and full-stack development of the platform, replacing the existing PowerApps solution with a custom ASP.NET Core MVC application backed by a relational SQL Server database."
+        },
+        {
+          "type": "paragraph",
+          "text": "I'm working with a colleague, collaborating on developing the schema, setting up the SQL Server database and integrating Microsoft Entra authentication."
+        },
+        {
+          "type": "paragraph",
+          "text": "The system centralises site profiles, infrastructure, security configurations, service accounts, external applications and technical documentation, providing a consistent approach to maintaining and reviewing information across global locations."
+        }
+      ]
+    },
+    {
+      "title": "The Challenge",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "Managing detailed IT information across multiple international sites presents significant usability and data-management challenges."
+        },
+        {
+          "type": "paragraph",
+          "text": "The application needs to accommodate complex technical records without overwhelming users, while making it straightforward to locate information, identify incomplete records, manage updates and track recurring verification requirements."
+        },
+        {
+          "type": "paragraph",
+          "text": "One important design consideration is distinguishing data completeness from verification status. A record may contain all required information but still be overdue for review. Presenting these independently gives users a clearer understanding of both record quality and compliance with internal verification schedules."
+        },
+        {
+          "type": "paragraph",
+          "text": "External application inventories add further complexity, requiring support for traditional structured forms alongside flexible JSON-based data imports, without unintentionally overwriting or removing existing information."
+        }
+      ]
+    },
+    {
+      "title": "Design & Development",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Interface Design & User Experience"
+        },
+        {
+          "type": "paragraph",
+          "text": "I translated the Figma designs into responsive Razor views, establishing a consistent visual system across dashboards, navigation, data tables, forms and individual record pages."
+        },
+        {
+          "type": "paragraph",
+          "text": "The interface supports light, dark and hybrid themes, with an emphasis on clear information hierarchy and reducing unnecessary interactions."
+        },
+        {
+          "type": "paragraph",
+          "text": "I introduced tabbed record sections, sticky navigation, completion indicators and contextual editing. Users can update individual fields or enter a broader editing mode, allowing detailed technical records to remain readable without sacrificing editability."
+        },
+        {
+          "type": "heading",
+          "text": "Global Site Directory & Mapping"
+        },
+        {
+          "type": "paragraph",
+          "text": "I developed a searchable site directory with filtering, sortable columns and synchronised list and map views."
+        },
+        {
+          "type": "paragraph",
+          "text": "The interactive global map uses d3-geo for geographic projections, enabling users to explore locations visually, zoom into regions and select individual sites."
+        },
+        {
+          "type": "paragraph",
+          "text": "Directory filters and navigation context are preserved when returning from a site record, reducing repetitive navigation and helping users maintain their workflow."
+        },
+        {
+          "type": "heading",
+          "text": "Data Management & Verification"
+        },
+        {
+          "type": "paragraph",
+          "text": "The application uses Entity Framework Core and SQL Server to manage structured site information, relationships and supporting records."
+        },
+        {
+          "type": "paragraph",
+          "text": "I implemented quarterly verification workflows, including shared review deadlines, verification windows and automatically calculated status indicators."
+        },
+        {
+          "type": "paragraph",
+          "text": "The central dashboard provides visibility into site totals, record completeness, upcoming and overdue reviews, and geographic distribution."
+        },
+        {
+          "type": "paragraph",
+          "text": "Change history also captures updates to site information, supporting accountability and ongoing data maintenance."
+        },
+        {
+          "type": "heading",
+          "text": "External Asset Inventories & JSON Integration"
+        },
+        {
+          "type": "paragraph",
+          "text": "One of the more technically involved areas is the management of external application inventories."
+        },
+        {
+          "type": "paragraph",
+          "text": "I designed a hybrid data architecture combining relational SQL Server records with independently stored CycloneDX-compatible JSON documents, supporting both structured manual entry and flexible imported inventories."
+        },
+        {
+          "type": "paragraph",
+          "text": "The functionality includes interactive JSON editing, document validation and import previews, alongside configurable conflict-resolution options."
+        },
+        {
+          "type": "paragraph",
+          "text": "Users can merge new information, update existing values while preserving omitted fields, or explicitly replace an existing document. These workflows are designed to minimise accidental data loss while accommodating different data sources."
+        },
+        {
+          "type": "heading",
+          "text": "Reporting, Documents & Testing"
+        },
+        {
+          "type": "paragraph",
+          "text": "I developed searchable reporting interfaces with Excel and CSV exports, alongside repeatable notes, private document attachments and file previews."
+        },
+        {
+          "type": "paragraph",
+          "text": "Automated testing covers validation, authorisation, concurrent edits, database integrity and key browser workflows, helping maintain reliability as the application evolves."
+        },
+        {
+          "type": "paragraph",
+          "text": "Git and GitHub are used for version control, tracking code changes throughout the project's ongoing development."
+        }
+      ]
+    },
+    {
+      "title": "Outcome So Far",
+      "blocks": [
+        {
+          "type": "paragraph",
+          "text": "The Global IT Database now provides a working foundation for managing and maintaining IT information across CCL's global sites."
+        },
+        {
+          "type": "paragraph",
+          "text": "Core functionality includes site management, interactive mapping, structured data editing, verification tracking, reporting, document management and external asset inventories."
+        },
+        {
+          "type": "paragraph",
+          "text": "The project demonstrates the integration of UX/UI design, full-stack .NET development, relational data modelling and structured JSON processing within a single enterprise application."
+        },
+        {
+          "type": "paragraph",
+          "text": "Development is ongoing, with continued refinement focused on usability, data quality, reliability and additional functionality."
+        }
+      ]
+    }
+  ],
+  "imageSlider": [
+    {
+      "src": "/images/projects/global-it-database/dashboard-overview.png",
+      "alt": "Global IT dashboard showing site totals, review status and geographic coverage",
+      "caption": "Dashboard overview"
+    },
+    {
+      "src": "/images/projects/global-it-database/global-site-directory.png",
+      "alt": "Searchable global site directory with survey status, completion indicators and review dates",
+      "caption": "Global site directory"
+    },
+    {
+      "src": "/images/projects/global-it-database/global-site-map.png",
+      "alt": "Global site map alongside a synchronised list of locations",
+      "caption": "Global site map"
+    },
+    {
+      "src": "/images/projects/global-it-database/site-map-location-detail.png",
+      "alt": "Zoomed site map with a selected location and its completion and verification details",
+      "caption": "Site map location detail"
+    },
+    {
+      "src": "/images/projects/global-it-database/site-record-overview.png",
+      "alt": "Site record overview with profile completeness, quarterly verification and tabbed navigation",
+      "caption": "Site record overview"
+    },
+    {
+      "src": "/images/projects/global-it-database/site-systems-management.png",
+      "alt": "Site systems view with completion indicators and contextual editing for business and security systems",
+      "caption": "Site systems management"
+    },
+    {
+      "src": "/images/projects/global-it-database/external-application-inventory.png",
+      "alt": "External application inventory with application details, authentication sections and JSON upload, validation and download controls",
+      "caption": "External application inventory"
+    }
+  ]
+},
+{
   id: "webhub",
   scope: "Database design, full-stack development and editorial workflows",
   headlineOutcome: "Translations, URLs, vacancies and news managed in one tool; translation updates appear instantly.",
@@ -195,7 +447,7 @@ export const projects: Project[] = [
 },
   {
     id: "ccl-design-website",
-    order: 4,
+    order: 5,
     title: "CCL Design Website 2022",
     slug: "ccl-design-website",
     summary:
@@ -319,7 +571,7 @@ export const projects: Project[] = [
     id: "web-portal",
     scope: "User research, three redesigns (2022–2025) and a Figma design system",
     headlineOutcome: "Up to 30% fewer errors and 22% fewer support ticket requests.",
-    order: 3,
+    order: 4,
     title: "Ekco Web Portal",
     slug: "web-portal",
     summary:
@@ -555,7 +807,7 @@ export const projects: Project[] = [
   },
   {
     id: "t-shirt-designs-andother-products",
-    order: 5,
+    order: 7,
     title: "T-Shirt Designs (& Other Products)",
     slug: "t-shirt-designs-andother-products",
     summary:
@@ -603,7 +855,7 @@ export const projects: Project[] = [
   },
   {
     id: "b2b-landing-page-design",
-    order: 6,
+    order: 8,
     title: "B2B Landing Page Design",
     slug: "b2b-landing-page-design",
     summary:
@@ -627,7 +879,7 @@ export const projects: Project[] = [
   },
   {
     id: "ecommerce-site-reactjs",
-    order: 7,
+    order: 6,
     title: "React eCommerce Practice Project",
     slug: "ecommerce-site-reactjs",
     summary:

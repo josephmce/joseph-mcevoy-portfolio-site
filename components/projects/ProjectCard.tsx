@@ -19,6 +19,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </Link>
       <div className="project-card-copy">
         <div className="tag-list" aria-label="Project categories">
+          {project.status ? <span className="tag">{project.status}</span> : null}
           {project.categories.map((category) => (
             <span className="tag" key={category.slug}>
               {category.title}

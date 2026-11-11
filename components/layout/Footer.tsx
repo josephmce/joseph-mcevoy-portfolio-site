@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { Brand } from "@/components/ui/Brand";
@@ -15,7 +16,7 @@ export function Footer() {
           <p>You made it to the bottom. I like your commitment.</p>
           <p>Let&apos;s chat</p>
           <Link className="button button-small" href="/contact">
-            Get in touch ↗
+            Get in touch <ArrowIcon />
           </Link>
         </div>
 

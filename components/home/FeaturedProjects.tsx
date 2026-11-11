@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/types/content";
@@ -11,8 +12,9 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
             <p className="mini-label">{project.role || "Web Design & Development"}</p>
             <h3>{project.title}</h3>
             <p>{project.summary}</p>
+            {project.headlineOutcome ? <p className="featured-project-outcome"><strong>Outcome</strong> {project.headlineOutcome}</p> : null}
             <Link className="button button-small" href={`/work/${project.slug}`}>
-              View Project ↗
+              View Project <ArrowIcon />
             </Link>
             <div className="tag-list" aria-label="Project categories">
               {project.categories.map((category) => (

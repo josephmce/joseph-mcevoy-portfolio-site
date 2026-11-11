@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { TextContent } from "@/components/content/TextContent";
 import { Container } from "@/components/layout/Container";
 import { ImageSlider } from "@/components/projects/ImageSlider";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { getProject, getProjects } from "@/lib/content";
 
 type ProjectPageProps = {
@@ -35,6 +36,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   if (!project) notFound();
 
+  const relatedProjects = project.relatedProjectSlugs?.map(getProject).filter((item) => item !== null) ?? [];
+  const impactSection = project.sections?.find((section) => section.title === "Impact");
+  const impactParagraph = impactSection?.blocks.find((block) => block.type === "paragraph");
+  const headlineOutcome = project.headlineOutcome || project.outcome?.[0] || (impactParagraph && "text" in impactParagraph ? impactParagraph.text : project.summary);
+
   const details = [
     ["Role", project.role],
     ["Client", project.client || project.employer],
@@ -57,6 +63,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <h1>{project.title}</h1>
           <p>{project.summary}</p>
+          <dl className="project-at-a-glance">
+            <div><dt>Role</dt><dd>{project.role || "Design and development"}</dd></div>
+            <div><dt>Scope</dt><dd>{project.scope || project.services?.slice(0, 3).join(", ") || project.categories.map((category) => category.title).join(", ")}</dd></div>
+            <div><dt>Outcome</dt><dd>{headlineOutcome}</dd></div>
+          </dl>
         </Container>
       </section>
 
@@ -82,30 +93,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </dl>
 
             <div className="project-links">
+              {relatedProjects.map((related) => (
+                <Link key={related.slug} href={`/work/${related.slug}`}>Related: {related.title} <ArrowIcon /></Link>
+              ))}
               {project.liveUrl ? (
                 <a href={project.liveUrl} target="_blank" rel="noreferrer">
-                  Visit live project ↗
+                  Visit live project <ArrowIcon />
                 </a>
               ) : null}
               {project.prototypeUrl ? (
                 <a href={project.prototypeUrl} target="_blank" rel="noreferrer">
-                  View prototype ↗
+                  View prototype <ArrowIcon />
                 </a>
               ) : null}
               {project.repositoryUrl ? (
                 <a href={project.repositoryUrl} target="_blank" rel="noreferrer">
-                  View repository ↗
+                  View repository <ArrowIcon />
                 </a>
               ) : null}
             </div>
           </aside>
 
           <article className="case-study-content">
+            {project.contentStatus?.length ? (
+              <section>
+                <h2>Live content workflows</h2>
+                <dl className="content-status">
+                  {project.contentStatus.map((item) => <div key={item.label}><dt>{item.label}</dt><dd>{item.status}</dd></div>)}
+                </dl>
+              </section>
+            ) : null}
             {project.sections?.map((section) => (
               <section key={section.title}>
                 <h2>{section.title}</h2>
                 <div className="prose">
                   {section.blocks.map((block, index) => {
+                    if (block.type === "image") return (
+                      <figure className="case-study-figure" key={index}>
+                        <a href={block.item.src} target="_blank" rel="noreferrer" aria-label={`Open full-size image: ${block.item.alt}`}>
+                          <Image src={block.item.src} alt={block.item.alt} width={block.item.width} height={block.item.height} sizes="(max-width: 800px) 100vw, 760px" />
+                        </a>
+                        <figcaption>{block.item.caption} <a href={block.item.src} target="_blank" rel="noreferrer">View full size <ArrowIcon /></a></figcaption>
+                      </figure>
+                    );
                     if (block.type === "slider") return <ImageSlider key={index} items={block.items} label={block.label} />;
                     if (block.type === "heading") return <h3 key={index}>{block.text}</h3>;
                     if (block.type === "link") return (
@@ -135,6 +165,26 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <TextContent paragraphs={project.challenge} />
               </section>
             ) : null}
+            {project.workflow ? (
+              <section className="project-workflow">
+                <h2>{project.workflow.title}</h2>
+                {project.workflow.steps.map((step, index) => (
+                  <div className="workflow-step" key={step.title}>
+                    <h3><span className="workflow-number">{index + 1}</span>{step.title}</h3>
+                    <p>{step.description}</p>
+                    {step.image ? (
+                      <figure>
+                        <a href={step.image.src} target="_blank" rel="noreferrer" aria-label={`Open full-size image: ${step.image.alt}`}>
+                          <Image src={step.image.src} alt={step.image.alt} width={1900} height={907} sizes="(max-width: 800px) 100vw, 760px" />
+                        </a>
+                        <figcaption>{step.image.caption} <a href={step.image.src} target="_blank" rel="noreferrer">View full size <ArrowIcon /></a></figcaption>
+                      </figure>
+                    ) : null}
+                    {step.href ? <a className="text-link" href={step.href} target="_blank" rel="noreferrer">Explore this step <ArrowIcon /></a> : null}
+                  </div>
+                ))}
+              </section>
+            ) : null}
             {project.process?.length ? (
               <section>
                 <h2>Process</h2>
@@ -155,6 +205,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             ) : null}
           </article>
         </div>
+
+        {relatedProjects.length ? (
+          <nav className="related-projects" aria-label="Related case studies">
+            <h2>The connected project</h2>
+            {relatedProjects.map((related) => (
+              <Link key={related.slug} href={`/work/${related.slug}`}>
+                <strong>{related.title} <ArrowIcon /></strong>
+                <span>{related.headlineOutcome || related.summary}</span>
+              </Link>
+            ))}
+          </nav>
+        ) : null}
 
         {project.imageSlider?.length ? (
           <section className="project-image-slider" aria-label={`${project.title} screenshots`}>
@@ -180,7 +242,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : null}
 
         <div className="back-link">
-          <Link href="/work">← Back to all work</Link>
+          <Link href="/work"><ArrowIcon direction="left" /> Back to all work</Link>
         </div>
       </Container>
     </main>

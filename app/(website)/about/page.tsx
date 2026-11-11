@@ -1,3 +1,4 @@
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "About",
 };
 
-const professionalTags = ["Web Design", "Web Development", "UX/UI", "3D", "VFX"];
+const professionalTags = ["Full-stack development", "UX/UI", "Database design", "Multilingual websites"];
 const personalTags = ["Music", "Gym", "Walking"];
 
 export default function AboutPage() {
@@ -49,30 +50,31 @@ export default function AboutPage() {
             <span className="mini-label">Professional</span>
             <h2>About Me</h2>
             <p>
-              I&apos;m a multidisciplinary digital professional working across web
-              design, frontend development and user experience. I specialise in
-              creating responsive, accessible websites and intuitive interfaces,
-              combining strong visual design skills with hands-on coding ability.
+              I&apos;m a full-stack web developer and UX/UI designer with 14 years
+              of experience building websites and applications, from user research
+              and interface design through database architecture and deployment.
             </p>
             <p>
-              My background includes UX initiatives, designing and developing websites and web 
-              applications, including CMS-driven websites, while collaborating across 
-              marketing, development and product teams. I work with modern
-              frontend technologies including React.js and Next.js, alongside 
-              .NET and .NET Core applications. I also have experience with 
-              Node.js and Express, Python and Django, with Figma, Adobe
-              Creative Suite and 3D tools supporting the wider design workflow.
+              At CCL Design, I converted the entire website to ASP.NET Core on
+              .NET 10 and brought four languages onto shared templates. I developed
+              the SQL Server schemas and publishing workflows behind news and
+              translations, alongside the vacancy schema I originally built in 2022.
             </p>
-            <p>On the backend and infrastructure side, I have experience working 
-              with SQL Server, MySQL, PostgreSQL and MongoDB, including relational 
-              database design, tables, stored procedures, views and queries. I also 
-              work with IIS, Docker and containerised application environments, 
-              supporting the development, deployment and hosting of data-driven 
-              websites and web applications.</p>
             <p>
-              Whether designing in Figma, coding in VS Code or optimising SEO, I
-              favour a problem-solving mindset and a user-first approach to every
-              project.
+              I also built WebHub, the administration application editors use to
+              manage news, vacancies, translations and URLs. The website reads
+              translations directly from the database, so saved changes appear instantly.
+            </p>
+            <p>
+              At Ekco, I led research and UX/UI design across three portal redesigns,
+              turning interviews and affinity mapping into wireframes, prototypes
+              and a reusable design system. My work combines ASP.NET Core, SQL Server
+              and React with a practical understanding of how people use a product.
+            </p>
+            <p>
+              I take responsibility for the whole journey: understanding the problem,
+              designing the interface, building the data and application layers, and
+              supporting deployment in IIS.
             </p>
             <div className="tag-list about-tags">
               {professionalTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
@@ -110,7 +112,7 @@ export default function AboutPage() {
 
       <section className="about-action">
         <Container>
-          <Link className="button button-small" href="/work">View All Projects ↗</Link>
+          <Link className="button button-small" href="/work">View All Projects <ArrowIcon /></Link>
         </Container>
       </section>
     </main>

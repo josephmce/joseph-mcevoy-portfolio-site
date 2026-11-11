@@ -3,14 +3,33 @@ import type { Project } from "@/types/content";
 // Portfolio projects migrated from the previous Framer portfolio.
 // Image files are downloaded into /public/images/projects by the companion
 // scripts/download-framer-project-assets.ps1 script.
+const cclContentStatus = [
+  { label: "Translations & URLs", status: "Live: managed in WebHub and read directly from SQL Server." },
+  { label: "Vacancies", status: "Live: managed in WebHub using the vacancy schema developed in 2022." },
+  { label: "News articles", status: "Live: managed in WebHub; SQL Server replaces Umbraco for news." },
+  { label: "People profiles", status: "Live: managed alongside the website's other content in WebHub." },
+];
+
 export const projects: Project[] = [
 {
   id: "webhub",
+  scope: "Database design, full-stack development and editorial workflows",
+  headlineOutcome: "Translations, URLs, vacancies and news managed in one tool; translation updates appear instantly.",
+  relatedProjectSlugs: ["ccl-design-website-2026"],
+  contentStatus: cclContentStatus,
+  workflow: {
+    title: "From translation comparison to a live update",
+    steps: [
+      { title: "Compare four languages", description: "Editors find the translation key and compare English, German, Spanish and Chinese in one table, rather than editing separate resource files.", image: { src: "/images/projects/webhub/webhub-4.png", alt: "WebHub translation table comparing English, German, Spanish and Chinese", caption: "Search and language filters keep related translations together." } },
+      { title: "Edit the language values", description: "The editor keeps the translation key and language values together, so editors can update the relevant copy in context.", image: { src: "/images/projects/webhub/webhub-6.png", alt: "Language values for the same translation in four languages", caption: "A single translation key groups the four language values." } },
+      { title: "Save once, update the website", description: "Saved changes go to SQL Server. The .NET 10 website reads translations directly from the database, so updates are reflected instantly without exporting RESX files." },
+    ],
+  },
   order: 2,
   title: "WebHub - Website Content Management",
   slug: "webhub",
   summary:
-    "A custom ASP.NET Core MVC administration platform for managing CCL Design's multilingual website content, translations and page routes, with vacancy management and a planned expansion into news articles and people profiles.",
+    "A custom ASP.NET Core MVC administration platform for managing CCL Design's multilingual website content, translations and page routes, with live editing workflows for translations, URLs, vacancies, news articles and people profiles.",
   featured: true,
   projectDate: "2026-10-14",
   client: "CCL Design",
@@ -64,7 +83,7 @@ export const projects: Project[] = [
   overview: [
     "I developed WebHub as a central administration platform for CCL Design's website, giving content editors a dedicated interface for maintaining translations, language-specific page routes and structured website content.",
     "The application is built with ASP.NET Core MVC, C# and Razor, with Entity Framework Core handling access to a SQL Server database. I have since updated the CCL Design website to ASP.NET Core on .NET 10. The website now reads translations directly from the database, so updates made within WebHub are reflected instantly on the website.",
-    "Translation management forms the core of the platform. The wider development scope also includes bringing vacancy administration into WebHub, followed by SQL-backed news articles and people profiles managed through the same application.",
+    "Translations, language-specific URLs, vacancies, news articles and people profiles are managed in WebHub and used by the live website.",
   ],
   challenge: [
     "Website content was spread across separate language-specific pages and resource files, making updates repetitive and difficult to track. Editors needed a clearer way to find content, compare translations and maintain consistency across English, German, Spanish and Chinese.",
@@ -78,24 +97,27 @@ export const projects: Project[] = [
     "I initially developed resource export functionality to generate RESX files for the Web Forms website, with generation history recorded in the database. After updating the CCL Design website to ASP.NET Core on .NET 10, I connected its translations directly to the database. Translation updates made in WebHub are now reflected instantly on the website without exporting or deploying resource files.",
     "I added page-route management to associate resource groups with language-specific URL slugs and the underlying website page references. This supplies the route information used by the website for translated navigation and language switching, alongside its canonical, hreflang and redirect handling.",
     "I worked through configuration and integration issues across the application, including database-schema alignment, connection strings, Entity Framework queries, form submissions and resource-file handling. The aim was to make the administration workflow reliable within the existing SQL Server and IIS environment.",
-    "For vacancy management, the work includes adapting the existing recruitment administration functionality for WebHub, covering vacancy content, recruitment sites and publication status. This needs to remain compatible with the website's listing, detail and application workflows.",
-    "I also scoped the next stage of content management: multilingual news articles stored in SQL Server and edited within WebHub. The proposed editor supports categories, main images and vertically reorderable content blocks, including image-and-text sections and linked content cards.",
-    "The planned news and people modules will reuse the existing language records while storing translations against each individual article or profile. Content will be able to exist in a single language, with additional translations added independently and further languages supported through the shared language model.",
+    "I brought vacancy administration into WebHub, covering vacancy content, recruitment sites and publication status. It retains the SQL Server schema I originally developed in 2022 and the website's established listing, detail and application workflows.",
+    "I developed news article management in WebHub with content stored in SQL Server, replacing the website's Umbraco integration. Editors can manage articles and publication status alongside vacancies, translations and URLs.",
   ],
   outcome: [
     "WebHub provides a central place to manage website translations and translated page routes, helping maintain consistency across the site's supported languages.",
     "The CCL Design website now runs on ASP.NET Core on .NET 10 and displays translations directly from the database. Updates made within WebHub are reflected instantly on the website, replacing the previous RESX export workflow for website translations.",
-    "The application establishes a reusable foundation for broader website administration. Vacancy management is part of the platform's ongoing expansion, with news articles and people profiles planned as further SQL-backed modules.",
-    "The longer-term goal is to give editors a consistent interface for managing multilingual website content, recruitment information, news and people profiles, supported by a shared database structure and maintainable .NET application.",
+    "Editors now manage news articles and vacancies through the same application as translations and URLs, with the live website retrieving content from SQL Server.",
+    "WebHub brings multilingual content, recruitment information and news into a consistent editing interface, supported by a shared database and maintainable .NET application.",
   ],
 },
 {
   id: "ccl-design-website-2026",
+  scope: "Whole-site .NET 10 migration, multilingual routing and SQL Server publishing",
+  headlineOutcome: "Four languages on shared templates, with translations and URLs managed centrally in WebHub.",
+  relatedProjectSlugs: ["webhub"],
+  contentStatus: cclContentStatus,
   order: 1,
   title: "CCL Design Website 2026",
   slug: "ccl-design-website-2026",
   summary:
-    "A complete migration of CCL Design's global website to ASP.NET Core on .NET 10, delivering a much faster, more responsive experience with SQL Server-backed news, vacancies, translations and URLs managed through WebHub.",
+    "A production website migrated to ASP.NET Core on .NET 10, with four languages on shared templates and translations, URLs, news, vacancies and people profiles managed centrally in WebHub.",
   featured: true,
   projectDate: "2026-10-14",
   client: "CCL Design",
@@ -295,8 +317,10 @@ export const projects: Project[] = [
   },
   {
     id: "web-portal",
+    scope: "User research, three redesigns (2022–2025) and a Figma design system",
+    headlineOutcome: "Up to 30% fewer errors and 22% fewer support ticket requests.",
     order: 3,
-    title: "Web Portal",
+    title: "Ekco Web Portal",
     slug: "web-portal",
     summary:
       "Web portal project created in Figma for a SaaS company, utilising components, variables etc, hooked up to a design system. Developed through conducting user research, user interviews and collating findings to produce a product users are keen to use.",
@@ -336,6 +360,54 @@ export const projects: Project[] = [
             "text": "When I started at Ekco I was tasked with redesigning their portal which at that point was using a free template from online. During my time there the Portal went through 3 redesigns to suit the evolving needs of the platform. Below outlines the UX process and the UI design of the 3rd iteration."
           }
         ]
+      },
+      {
+        title: "From interview finding to design direction",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "I documented seven dashboard interviews and grouped the observations in an affinity map. One recurring problem was relevance: users saw widgets that did not match their services or day-to-day tasks, while some bypassed the dashboard to reach reports through the sidebar.",
+          },
+          { type: "heading", text: "Finding: a dashboard users could not make their own" },
+          {
+            type: "paragraph",
+            text: "Participants wanted to choose which widgets appeared and arrange them around their own work. The notes also exposed differences between user contexts: some valued news and team contacts, while others mainly needed backup or security reporting. A fixed set of widgets could not serve all of these needs equally well.",
+          },
+          {
+            type: "image",
+            item: {
+              src: "/images/projects/web-portal/research-key-insights.png",
+              alt: "Research findings covering dashboard customisation, widget relevance, feature discoverability and confusing tab filters",
+              caption: "Excerpt from the interview summary: the findings that informed the dashboard recommendations.",
+              width: 1157,
+              height: 181,
+            },
+          },
+          { type: "heading", text: "Design response: widget choice and clearer controls" },
+          {
+            type: "paragraph",
+            text: "I translated these themes into a design brief for a customisable dashboard: a toolbar to add or remove widgets, drag-and-drop ordering, and widget visibility based on user roles and customer context. The summary also recommended replacing the ambiguous tabbed section with an explicit Filter button, using names aligned with the service catalogue.",
+          },
+          {
+            type: "paragraph",
+            text: "A related discoverability finding was that participants struggled to locate feedback under Settings. I recommended moving it to the sidebar or top header, where users expected to find it.",
+          },
+          { type: "heading", text: "Result: a prioritised brief for prototyping" },
+          {
+            type: "paragraph",
+            text: "The research produced a concrete set of dashboard recommendations and next steps: prototype widget management, gather feedback on new widgets, and test clearer filtering and reporting interactions. These are the documented outputs of this study; the report presents them as recommendations for the next design iteration.",
+          },
+          {
+            type: "link",
+            text: "Read the interview summary",
+            href: "https://www.figma.com/board/9EK3G9HdVIKBc1AzsGXD0P/Web-Portal-Interviews-Summary?node-id=0-1&p=f&t=yHosPWsTxVbCT63v-0",
+          },
+          {
+            type: "link",
+            text: "Explore the dashboard wireframes",
+            href: "https://www.figma.com/proto/L1XwxZXt6qQKGiQ6X3gNL9/Wireframes?node-id=1-12292&viewport=-4251%2C210%2C0.19&t=nMVetvUN97YO20Hk-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A12292&show-proto-sidebar=1",
+          },
+        ],
       },
       {
         "title": "Impact",
@@ -410,7 +482,7 @@ export const projects: Project[] = [
           {
             "type": "link",
             "text": "Summary Report >",
-            "href": "https://www.figma.com/board/uhTAADJGcu68MtL5qJ75Ko/Affinity-Map---Insights?node-id=0-1&t=9K18ck435CSpS4b1-1"
+            "href": "https://www.figma.com/board/9EK3G9HdVIKBc1AzsGXD0P/Web-Portal-Interviews-Summary?node-id=0-1&p=f&t=yHosPWsTxVbCT63v-0"
           }
         ]
       },

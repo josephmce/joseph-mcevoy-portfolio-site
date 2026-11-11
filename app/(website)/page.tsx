@@ -6,6 +6,7 @@ import { Container } from "@/components/layout/Container";
 import { Testimonials } from "@/components/testimonials/Testimonials";
 import { getFeaturedProjects, getTestimonials } from "@/lib/content";
 import { ClientLogoMarquee } from "@/components/home/ClientLogoMarquee";
+import { ArrowIcon } from "@/components/ui/ArrowIcon";
 
 export default function HomePage() {
   const projects = getFeaturedProjects();
@@ -19,31 +20,22 @@ export default function HomePage() {
           <div className="hero-glow-small"></div>
         </div>
         <Container className="home-hero-inner">
-          <AnimatedHeroTitle text="A creative Full Stack Web Developer & UX/UI Designer with 14 years of experience designing smart, modern websites & apps and coding them into reality." />
-          <Link className="button button-small" href="/contact">
-            Get in touch ↗
-          </Link>
+          <AnimatedHeroTitle text="Full-stack web developer & UX/UI designer" />
+          <p className="hero-supporting-copy">I build multilingual websites, content management tools and B2B applications using ASP.NET Core, SQL Server and React.</p>
+          <div className="hero-actions">
+            <Link className="button" href="#selected-work">View selected work <ArrowIcon direction="right" /></Link>
+            <Link className="button button-outline" href="/contact">Get in touch <ArrowIcon /></Link>
+          </div>
         </Container>
       </section>
 
-      <section className="client-strip star-field">
-        <Container>
-          <p className="client-strip-label">
-            Companies I&apos;ve worked with
-          </p>
-
-          <ClientLogoMarquee />
-        </Container>
-      </section>
-
-      <section className="section selected-projects star-field">
+      <section id="selected-work" className="section selected-projects star-field" tabIndex={-1}>
         <Container>
           <header className="framer-heading centered-heading">
             <span className="mini-label">Projects</span>
-            <h2>Selected Web Projects</h2>
+            <h2>Selected work</h2>
             <p>
-              A curated collection of work that highlights my approach to solving
-              real-world problems through thoughtful design and clean execution.
+              A production website, the tools behind it, and a research-led portal redesign.
             </p>
           </header>
 
@@ -51,9 +43,16 @@ export default function HomePage() {
 
           <div className="centered-action">
             <Link className="button button-small" href="/work">
-              View All Projects ↗
+              View all projects <ArrowIcon />
             </Link>
           </div>
+        </Container>
+      </section>
+
+      <section className="client-strip star-field">
+        <Container>
+          <p className="client-strip-label">Companies I&apos;ve worked with</p>
+          <ClientLogoMarquee />
         </Container>
       </section>
 
@@ -88,10 +87,10 @@ export default function HomePage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                LinkedIn ↗
+                LinkedIn <ArrowIcon />
               </a>
               <Link className="text-link" href="/contact">
-                Send a message →
+                Send a message <ArrowIcon direction="right" />
               </Link>
             </div>
           </div>

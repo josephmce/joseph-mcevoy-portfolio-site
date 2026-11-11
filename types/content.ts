@@ -23,6 +23,7 @@ export type CaseStudySection = {
     | { type: "link"; text: string; href: string }
     | { type: "list"; items: string[] }
     | { type: "slider"; items: GalleryItem[]; label?: string }
+    | { type: "image"; item: GalleryItem & { width: number; height: number } }
   )[];
 };
 
@@ -37,6 +38,14 @@ export type Project = {
   client?: string;
   employer?: string;
   role?: string;
+  scope?: string;
+  headlineOutcome?: string;
+  relatedProjectSlugs?: string[];
+  contentStatus?: { label: string; status: string }[];
+  workflow?: {
+    title: string;
+    steps: { title: string; description: string; image?: GalleryItem; href?: string }[];
+  };
   duration?: string;
   categories: ProjectCategory[];
   services?: string[];

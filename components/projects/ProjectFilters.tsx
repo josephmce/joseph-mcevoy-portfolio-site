@@ -9,10 +9,10 @@ const filters = [
   { label: "Branding", value: "branding" },
 ];
 
-export function ProjectFilters({ active }: { active?: string }) {
+export function ProjectFilters({ active, availableCategories }: { active?: string; availableCategories: string[] }) {
   return (
     <nav className="filter-list" aria-label="Filter projects">
-      {filters.map((filter) => {
+      {filters.filter((filter) => !filter.value || availableCategories.includes(filter.value)).map((filter) => {
         const href = filter.value ? `/work?category=${filter.value}` : "/work";
         const selected = (active || "") === filter.value;
 

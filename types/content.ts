@@ -38,6 +38,8 @@ export type Project = {
   client?: string;
   employer?: string;
   role?: string;
+  status?: string;
+  standards?: string[];
   scope?: string;
   headlineOutcome?: string;
   relatedProjectSlugs?: string[];

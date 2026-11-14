@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#17666a" stop-opacity=".6"/><stop offset="1" stop-color="#1c1c1e" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#1c1c1e"/>
+  <ellipse cx="1090" cy="170" rx="600" ry="500" fill="url(#glow)"/>
+  <rect x="48" y="48" width="1104" height="534" rx="20" fill="none" stroke="#414145" stroke-width="2"/>
+  <rect x="90" y="100" width="64" height="6" rx="3" fill="#59c4c5"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="90" y="190" font-size="62" font-weight="700" fill="#f5f5f5">Joseph McEvoy</text>
+    <text x="90" y="310" font-size="52" font-weight="600" fill="#f5f5f5">Full-stack web developer</text>
+    <text x="90" y="378" font-size="52" font-weight="600" fill="#59c4c5">&amp; UX/UI designer</text>
+    <text x="90" y="448" font-size="25" fill="#b7b7ba">Multilingual websites. Content tools. B2B applications.</text>
+    <text x="90" y="530" font-size="24" fill="#f5f5f5">josephmcevoy.co.uk</text>
+  </g>
+</svg>

@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/Container";
 import { ImageSlider } from "@/components/projects/ImageSlider";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
 import { getProject, getProjects } from "@/lib/content";
+import { pageMetadata } from "@/lib/metadata";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -24,10 +25,10 @@ export async function generateMetadata({
 
   if (!project) return {};
 
-  return {
-    title: project.title,
-    description: project.summary,
-  };
+  return pageMetadata(project.title, project.summary, `/work/${project.slug}`, {
+    url: project.coverImage.endsWith(".svg") ? "/images/social/portfolio-card.png" : project.coverImage,
+    alt: `${project.title} project cover`,
+  });
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {

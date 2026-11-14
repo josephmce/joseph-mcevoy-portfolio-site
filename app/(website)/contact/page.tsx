@@ -1,10 +1,8 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { Container } from "@/components/layout/Container";
 
-export const metadata: Metadata = {
-  title: "Contact",
-};
+export const metadata = pageMetadata("Contact", "Contact Joseph McEvoy to discuss a website, web application, UX/UI project, role or collaboration.", "/contact");
 
 export default function ContactPage() {
   return (
@@ -25,7 +23,7 @@ export default function ContactPage() {
               <span className="mini-label">Start a conversation</span>
               <h2>Get in touch</h2>
               <p>
-                Whether it's a project, role or just a quick chat, feel free to send me a message.
+                Whether it&apos;s a project, role or just a quick chat, feel free to send me a message.
               </p>
             </div>
             <ContactForm />

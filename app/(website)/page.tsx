@@ -7,6 +7,9 @@ import { Testimonials } from "@/components/testimonials/Testimonials";
 import { getFeaturedProjects, getTestimonials } from "@/lib/content";
 import { ClientLogoMarquee } from "@/components/home/ClientLogoMarquee";
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
+import { defaultDescription, pageMetadata } from "@/lib/metadata";
+
+export const metadata = pageMetadata("Joseph McEvoy - Developer & Designer", defaultDescription, "/");
 
 export default function HomePage() {
   const projects = getFeaturedProjects();

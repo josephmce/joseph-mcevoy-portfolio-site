@@ -1,12 +1,10 @@
 import { ArrowIcon } from "@/components/ui/ArrowIcon";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/metadata";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 
-export const metadata: Metadata = {
-  title: "About",
-};
+export const metadata = pageMetadata("About", "Meet Joseph McEvoy, a full-stack developer and UX/UI designer with 14 years of experience spanning research, interface design, database architecture and deployment.", "/about");
 
 const professionalTags = ["Full-stack development", "UX/UI", "Database design", "Multilingual websites"];
 const personalTags = ["Music", "Gym", "Walking"];
@@ -41,14 +39,14 @@ export default function AboutPage() {
           <div className="about-image-card">
             <Image
               src="/images/about/joseph-2.jpg"
-              alt="Placeholder for professional portrait"
+              alt="Joseph McEvoy"
               width={900}
               height={700}
             />
           </div>
           <div className="about-copy">
             <span className="mini-label">Professional</span>
-            <h2>About Me</h2>
+            <h2>Design and development, from research to release</h2>
             <p>
               I&apos;m a full-stack web developer and UX/UI designer with 14 years
               of experience building websites and applications, from user research
@@ -93,7 +91,7 @@ export default function AboutPage() {
               I also enjoy travelling, going to see live music and picking up new creative skills and interests outside of web and product work. I’m always interested in learning something new, whether it’s creative, technical or just something completely different.
             </p>
             <p>
-              Formula 1 is a big interest of mine as well and have recently attended the British GP in 2024 and 2025.
+              I also enjoy Formula 1 and attended the British Grand Prix in 2024 and 2025.
             </p>
             <div className="tag-list about-tags">
               {personalTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}
@@ -102,7 +100,7 @@ export default function AboutPage() {
           <div className="about-image-card personal-collage">
             <Image
               src="/images/about/about-personal.jpg"
-              alt="Placeholder for personal photo collage"
+              alt="Photos from Joseph's life outside work"
               width={900}
               height={700}
             />
